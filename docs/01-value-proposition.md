@@ -15,34 +15,96 @@ nav_order: 1
 
 ## The Problem
 
-Viele junge Menschen und Studierende möchten reisen, stehen jedoch häufig vor dem Problem, keine passenden Reisepartner zu finden. Im Freundeskreis stimmen Zeitpläne, Budgets oder Reisevorstellungen oft nicht überein, wodurch geplante Reisen entweder gar nicht zustande kommen oder Kompromisse eingegangen werden müssen.
+Viele junge Erwachsene und Studierende möchten reisen, finden jedoch oft keine passenden Mitreisenden. Im Freundeskreis unterscheiden sich Zeitpläne, Budgets oder Reisevorstellungen, wodurch Reisen häufig nicht zustande kommen oder nur mit Kompromissen möglich sind.
 
-Gleichzeitig gibt es Personen, die Reisen aktiv planen und gerne Mitreisende finden würden, jedoch keine geeignete Möglichkeit haben, gezielt passende Personen kennenzulernen. Bestehende Plattformen sind entweder zu allgemein gehalten oder bieten keine strukturierte Auswahl nach Kriterien wie Interessen, Reisestil oder Budget.
+Gleichzeitig gibt es Personen, die bereits konkrete Trips geplant haben und gezielt Mitreisende suchen. Bestehende Lösungen wie Social Media oder allgemeine Reisegruppen sind oft unübersichtlich, unverbindlich und bieten keine strukturierte Möglichkeit, passende Personen anhand relevanter Kriterien wie Budget, Reisestil, Interessen oder Alter zu finden.
 
-Dadurch entsteht eine Lücke: Menschen, die reisen möchten, und Menschen, die Reisen organisieren, finden nicht effizient zueinander.
+Zusätzlich besteht auf beiden Seiten Unsicherheit und fehlendes Vertrauen: Reisende wissen oft nicht, ob Hosts seriös sind, während Hosts vermeiden möchten, ungeeignete oder unzuverlässige Personen mitzunehmen.
+
+Dadurch entsteht eine Marktlücke: Menschen, die reisen möchten, und Menschen, die Reisen organisieren, finden nicht effizient und sicher zueinander.
 
 
 ## Our Solution
 
-TravelMate ist eine zweiseitige Webplattform, die Reise-Hosts (Nutzer, die Reisen planen und erstellen) mit Reisenden (Nutzer, die sich Reisen anschließen möchten) verbindet.
+TravelMate ist eine zweiseitige Webplattform, die Hosts (Personen, die Reisen organisieren) mit Joinern (Personen, die sich bestehenden Reisen anschließen möchten) verbindet.
 
-Hosts können Reisen erstellen und dabei Informationen wie Reiseziel, Zeitraum, Budget und Reisestil angeben. Interessierte Nutzer können sich auf diese Reisen bewerben, und die Hosts wählen passende Teilnehmer basierend auf gemeinsamen Interessen und Präferenzen aus.
+Hosts können Reisen erstellen und dabei Informationen wie Reiseziel, Zeitraum, Budgetrahmen, verfügbare Plätze und Reisestil angeben. Joiner können passende Trips durchsuchen, nach individuellen Kriterien filtern und sich gezielt auf Reisen bewerben.
 
-Reisende können verfügbare Reisen durchsuchen, nach ihren individuellen Kriterien filtern und sich gezielt auf Reisen bewerben, die zu ihnen passen.
+Die Plattform nutzt einen strukturierten Matching-Prozess, um Angebot und Nachfrage effizient zusammenzubringen. Gemeinsamkeiten wie Budget, Interessen, Reisepräferenzen oder gewünschter Reisestil erhöhen die Wahrscheinlichkeit, dass passende Gruppen entstehen.
 
-Die Plattform schafft Mehrwert durch einen strukturierten Matching-Prozess: Hosts behalten die Kontrolle über die Auswahl ihrer Mitreisenden, während Reisende einfacher passende Reiseangebote finden können.
+Gleichzeitig sorgt TravelMate für mehr Transparenz und Vertrauen zwischen beiden Seiten:
+
+Hosts besitzen ein vollständiges Profil mit persönlichen Informationen und bisherigen Aktivitäten.
+Joiner sehen den Status ihrer Bewerbung transparent im Dashboard.
+Hosts entscheiden selbst, welche Bewerbungen angenommen oder abgelehnt werden.
+Profile und Bewerbungen schaffen eine nachvollziehbare Entscheidungsgrundlage statt anonymem Social-Media-Kontakt.
+
+Dadurch bietet TravelMate eine strukturierte, sichere und übersichtliche Alternative zu unorganisierten Reisegruppen oder spontanen Social-Media-Anfragen.
 
 ## Target User(s)
 
-Hosts sind junge Erwachsene zwischen 18 und 30 Jahren, die bereits einen Trip geplant haben, aber noch Mitreisende suchen. Sie möchten selbst entscheiden, wer mitkommt, und legen Wert auf gemeinsame Interessen und ein ähnliches Budget.
+Hosts
 
-Joiners sind reiseinteressierte Personen, die spontan oder kurzfristig verreisen möchten, aber niemanden in ihrem Umfeld haben, der Zeit oder Interesse hat. Sie suchen eine unkomplizierte Möglichkeit, sich einem bestehenden Trip anzuschließen, und möchten transparent sehen, ob ihre Bewerbung angenommen wurde.
+Hosts sind junge Erwachsene zwischen 18 und 30 Jahren, die bereits einen Trip geplant haben und noch passende Mitreisende suchen. Sie möchten selbst entscheiden, wer mitkommt, und legen Wert auf ähnliche Interessen, ein vergleichbares Budget und einen passenden Reisestil.
 
-Beide Gruppen verbindet: Sie sind budgetbewusst, offen für neue Bekanntschaften und bevorzugen eine strukturierte, übersichtliche Plattform gegenüber unverbindlichem Social-Media-Austausch. 
+Joiner
+
+Joiner sind reiseinteressierte Personen, die spontan oder kurzfristig verreisen möchten, aber niemanden im eigenen Umfeld finden, der Zeit oder Interesse hat. Sie suchen eine unkomplizierte Möglichkeit, sich bestehenden Trips anzuschließen, und möchten transparent sehen, wie der Status ihrer Bewerbung ist.
+
+Beide Gruppen verbindet:
+
+budgetbewusstes Reisen
+Offenheit gegenüber neuen Bekanntschaften
+Interesse an strukturierten und sicheren Reiseplanungen
+Wunsch nach einer übersichtlichen Plattform statt unverbindlichem Social-Media-Austausch
+
+## Wie Angebot und Nachfrage zusammenfinden
+
+Die Plattform reduziert die Nische beider Seiten durch standardisierte Reise- und Profilinformationen. Jeder Trip enthält klar definierte Angaben wie:
+
+Reiseziel
+Zeitraum
+Budget
+Reisestil
+verfügbare Plätze
+
+Zusätzlich können Joiner gezielt filtern und sich nur auf passende Trips bewerben. Dadurch erhöht sich die Wahrscheinlichkeit erfolgreicher Matches deutlich.
+
+Da Hosts mehrere Bewerbungen erhalten können und Joiner verschiedene Trips durchsuchen können, entsteht ein flexibler Matching-Prozess statt einer 1:1-Abhängigkeit.
+
+## Vertrauens- und Sicherheitsaspekte
+
+TravelMate schafft Vertrauen durch Transparenz und klare Rollen:
+
+Hosts und Joiner besitzen persönliche Profile.
+Bewerbungen laufen ausschließlich über die Plattform.
+Joiner sehen jederzeit den Status ihrer Bewerbung.
+Hosts kontrollieren, wer ihrer Reise beitritt.
+
+Dadurch werden Risiken wie Fake-Anfragen oder unklare Kommunikation reduziert. Die Plattform dient als strukturierter Vermittler zwischen beiden Seiten und schafft mehr Sicherheit als offene Social-Media-Gruppen oder spontane Chat-Anfragen.
 
 ##  Happy Path
 
-[Illustrate the app "happy path", from the app's entry point to a completed task. You might want to show the path as (schematic) screen flows. Ensure that your "happy path" (a) is consistent with the Value Proposition, and (b) shows the features as implemented in the submitted web app.]
+Nutzer öffnet die Startseite
+→ Buttons: „Trips finden“ oder „Trip erstellen“
+Registrierung
+→ Nutzer erstellt ein Konto und ein persönliches Profil
+Trip-Suche oder Trip-Erstellung
+→ Joiner durchsuchen verfügbare Trips
+→ Hosts erstellen eigene Reisen mit relevanten Informationen
+Detailseite eines Trips
+→ Informationen zu Ziel, Zeitraum, Budget, Reisestil und freien Plätzen
+Bewerbung auf einen Trip
+→ Joiner senden eine Bewerbung mit Nachricht und Reisepräferenzen
+Host-Dashboard
+→ Hosts sehen Bewerbungen und können diese annehmen oder ablehnen
+Joiner-Dashboard
+→ Joiner sehen den Status ihrer Bewerbungen:
+offen
+angenommen
+abgelehnt
+Erfolgreiches Matching
+→ Host und Joiner finden passend zueinander und können die Reise gemeinsam planen
 
 ---
 
