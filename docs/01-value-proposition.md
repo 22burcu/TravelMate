@@ -72,9 +72,10 @@ Zusätzlich können Joiner gezielt filtern und sich nur auf passende Trips bewer
 
 Da Hosts mehrere Bewerbungen erhalten können und Joiner verschiedene Trips durchsuchen können, entsteht ein flexibler Matching-Prozess statt einer 1:1-Abhängigkeit.
 
-## Definition einer Reise
+## Bedingungen und Regularien an den Host und Joiner im Kontext der Reispeplanung
 
-Als Host ist es möglich Reisen via TravelMate anzubieten. Jedoch ist es so, dass ein Host zur gleichen Zeit nur eine Reise anbieten kann. Erst wenn diese Reise abgeschlossen ist (Ablauf der Zeitperiode, welche angegeben ist), ist es möglich eine neue Reise zu offerieren.
+Als Host ist es einem Erlaubt zur gleichen Zeit maximal 3 Reisen zu offerieren. Dies soll Qualität und Einhaltung garantieren. Selbsterklärend ist dabei, dass sich die Reisen nicht überschneiden dürfen.
+Als Joiner ist es möglich unendlich viele Reisen zu buchen. Sollte man jedoch eine Reise buchen, die mit einer anderen Reise überschneidet, kriegt man eine Fehlermeldung, dass die Reise nicht gebucht werden kann.
 
 ## Vertrauens- und Sicherheitsaspekte
 
