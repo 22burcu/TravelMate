@@ -87,22 +87,29 @@ Dadurch werden Risiken wie Fake-Anfragen oder unklare Kommunikation reduziert. D
 
 Nutzer öffnet die Startseite
 → Buttons: „Trips finden“ oder „Trip erstellen“
+
 Registrierung
 → Nutzer erstellt ein Konto und ein persönliches Profil
+
 Trip-Suche oder Trip-Erstellung
 → Joiner durchsuchen verfügbare Trips
 → Hosts erstellen eigene Reisen mit relevanten Informationen
+
 Detailseite eines Trips
 → Informationen zu Ziel, Zeitraum, Budget, Reisestil und freien Plätzen
+
 Bewerbung auf einen Trip
 → Joiner senden eine Bewerbung mit Nachricht und Reisepräferenzen
+
 Host-Dashboard
 → Hosts sehen Bewerbungen und können diese annehmen oder ablehnen
+
 Joiner-Dashboard
 → Joiner sehen den Status ihrer Bewerbungen:
 offen
 angenommen
 abgelehnt
+
 Erfolgreiches Matching
 → Host und Joiner finden passend zueinander und können die Reise gemeinsam planen
 
