@@ -72,6 +72,10 @@ Zusätzlich können Joiner gezielt filtern und sich nur auf passende Trips bewer
 
 Da Hosts mehrere Bewerbungen erhalten können und Joiner verschiedene Trips durchsuchen können, entsteht ein flexibler Matching-Prozess statt einer 1:1-Abhängigkeit.
 
+## Definition einer Reise
+
+Als Host ist es möglich Reisen via TravelMate anzubieten. Jedoch ist es so, dass ein Host zur gleichen Zeit nur eine Reise anbieten kann. Erst wenn diese Reise abgeschlossen ist (Ablauf der Zeitperiode, welche angegeben ist), ist es möglich eine neue Reise zu offerieren.
+
 ## Vertrauens- und Sicherheitsaspekte
 
 TravelMate schafft Vertrauen durch Transparenz und klare Rollen:
