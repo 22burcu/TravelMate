@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.Text)
     created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
 
-    trips = db.relationships('Trip', back_populates='host')
+    trips = db.relationship('Trip', back_populates='host')
     applications = db.relationship('Application', back_populates='joiner')
 
     def get_id(self):
