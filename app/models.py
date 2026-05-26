@@ -50,7 +50,7 @@ class Trip(db.Model):
 
 class Application(db.Model):
     __tablename__ = "applications"
-    a_id = db.Column(db.Integer, pimary_key=True)
+    a_id = db.Column(db.Integer, primary_key=True)
     trip_t_id = db.Column(db.Integer, db.ForeignKey("trips.t_id"), nullable=False)
     joiner_u_id = db.Column(db.Integer, db.ForeignKey("users.u_id"), nullable=False)
     message = db.Column(db.Text)
