@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, app
 from .models import db, User
 from flask_login import LoginManager
 
@@ -28,4 +28,4 @@ def create_app():
     from . import main
     app.register_blueprint(main.bp)
 
-    return app
+    return app 
