@@ -45,15 +45,15 @@ Dadurch bietet TravelMate eine strukturierte, sichere und übersichtliche Altern
 
 Hosts
 
-Hosts sind junge Erwachsene zwischen 18 und 30 Jahren, die bereits einen Trip geplant haben und noch passende Mitreisende suchen. Sie möchten selbst entscheiden, wer mitkommt, und legen Wert auf ähnliche Interessen, ein vergleichbares Budget und einen passenden Reisestil.
+Hosts sind erwachsene Reiseenthusiasten, die bereits einen Trip geplant haben und noch passende Mitreisende suchen. Sie möchten selbst entscheiden, wer mitkommt, und legen Wert auf ähnliche Interessen, ein vergleichbares Budget und einen passenden Reisestil.
 
 Joiner
 
-Joiner sind reiseinteressierte Personen, die spontan oder kurzfristig verreisen möchten, aber niemanden im eigenen Umfeld finden, der Zeit oder Interesse hat. Sie suchen eine unkomplizierte Möglichkeit, sich bestehenden Trips anzuschließen, und möchten transparent sehen, wie der Status ihrer Bewerbung ist.
+Joiner sind reiseinteressierte Personen, die verreisen möchten, aber niemanden im eigenen Umfeld finden, der Zeit oder Interesse hat. Sie suchen eine unkomplizierte Möglichkeit, sich bestehenden Trips anzuschließen, und möchten transparent sehen, wie der Status ihrer Bewerbung ist.
 
 Beide Gruppen verbindet:
 
-budgetbewusstes Reisen
+Budgetbewusstes Reisen
 Offenheit gegenüber neuen Bekanntschaften
 Interesse an strukturierten und sicheren Reiseplanungen
 Wunsch nach einer übersichtlichen Plattform statt unverbindlichem Social-Media-Austausch
@@ -66,13 +66,17 @@ Reiseziel
 Zeitraum
 Budget
 Reisestil
-verfügbare Plätze
+Verfügbare Plätze
+Startpunkt
+Anzahl gewünschter Personen
 
-Zusätzlich können Joiner gezielt filtern und sich nur auf passende Trips bewerben. Dadurch erhöht sich die Wahrscheinlichkeit erfolgreicher Matches deutlich.
+Zusätzlich können Joiner gezielt filtern und sich nur auf passende Trips bewerben. Dadurch erhöht sich die Wahrscheinlichkeit erfolgreicher Matches deutlich. 
+
+Filter: Kontinent, alter, geschlecht, budget, reisestil
 
 Da Hosts mehrere Bewerbungen erhalten können und Joiner verschiedene Trips durchsuchen können, entsteht ein flexibler Matching-Prozess statt einer 1:1-Abhängigkeit.
 
-## Bedingungen und Regularien an den Host und Joiner im Kontext der Reispeplanung
+## Bedingungen und Regulierungen an den Host und Joiner im Kontext der Reispeplanung
 
 Als Host ist es einem Erlaubt zur gleichen Zeit maximal 3 Reisen zu offerieren. Dies soll Qualität und Einhaltung garantieren. Selbsterklärend ist dabei, dass sich die Reisen nicht überschneiden dürfen.
 Als Joiner ist es möglich unendlich viele Reisen zu buchen. Sollte man jedoch eine Reise buchen, die mit einer anderen Reise überschneidet, kriegt man eine Fehlermeldung, dass die Reise nicht gebucht werden kann.
