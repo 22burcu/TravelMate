@@ -1,7 +1,6 @@
-from flask import Flask, app
+from flask import Flask
 from .models import db, User
 from flask_login import LoginManager
-
 
 login_manager = LoginManager()
 
@@ -26,6 +25,10 @@ def create_app():
         return User.query.get(int(user_id))
     
     from . import main
-    app.register_blueprint(main.bp)
+    from .auth import auth_bp
 
-    return app 
+    app.register_blueprint(main.bp)
+    app.register_blueprint(auth_bp)
+
+
+    return app

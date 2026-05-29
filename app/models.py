@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(255), nullable=False)
     last_name = db.Column(db.String(255), nullable=False)
     birth_date = db.Column(db.Date, nullable=False)
-    caontact_info = db.Column(db.String(255))
+    contact_info = db.Column(db.String(255))
     bio = db.Column(db.Text)
     created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
 
