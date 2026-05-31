@@ -1,5 +1,8 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
+from werkzeug.security import generate_password_hash
+from datetime import datetime
+from .models import db, User
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -7,6 +10,53 @@ auth_bp = Blueprint("auth", __name__)
 @auth_bp.route("/register", methods=["GET", "POST"])
 def register():
     """Registrierungs-Route"""
+
+    if current_user.is_authenticated:
+        return redirect(url_for('main.index'))
+    
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
+        role = request.form.get("role")
+        birth_date_str = request.form.get("birth_date")
+        contact_info = request.form.get("contact_info")
+
+        if not all([email, password, confirm_password, first_name, last_name, role, birth_date_str]):
+            return render_template("register.html", error="Alle Felder müssen ausgefüllt sein!")
+
+        if password != confirm_password:
+            return render_template("register.html", error="Passwörter stimmen nicht überein!")
+
+        if User.query.filter_by(email=email).first():
+            return render_template("register.html", error="Diese E-Mail ist bereits registriert!")
+
+        try:
+            birth_date = datetime.strptime(birth_date_str, "%d-%m-%Y").date()
+            hashed_pw = generate_password_hash(password)
+
+            new_user = User(
+                email=email,
+                password_hash=hashed_pw,
+                role=role,
+                first_name=first_name,
+                last_name=last_name,
+                birth_date=birth_date,
+                contact_info=contact_info,
+            )
+
+            db.session.add(new_user)
+            db.session.commit()
+
+            flash("Konto erstellt! Bitte einloggen.", "success")
+            return redirect(url_for('auth.login'))
+
+        except Exception as e:
+            db.session.rollback()
+            return render_template("register.html", error=f"Fehler: {str(e)}")
+        
     return render_template("register.html")
 
 
