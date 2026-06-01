@@ -1,7 +1,9 @@
+from datetime import datetime
+
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
-from werkzeug.security import generate_password_hash
-from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+
 from .models import db, User
 
 auth_bp = Blueprint("auth", __name__)
@@ -34,7 +36,7 @@ def register():
             return render_template("register.html", error="Diese E-Mail ist bereits registriert!")
 
         try:
-            birth_date = datetime.strptime(birth_date_str, "%d-%m-%Y").date()
+            birth_date = datetime.strptime(birth_date_str, "%Y-%m-%d").date()
             hashed_pw = generate_password_hash(password)
 
             new_user = User(
@@ -63,6 +65,25 @@ def register():
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     """Login-Route"""
+    
+    if current_user.is_authenticated:
+        return redirect(url_for('main.index'))
+    
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+        
+        if not email or not password:
+            return render_template("login.html", error="E-Mail und Passwort erforderlich!")
+        
+        user = User.query.filter_by(email=email).first()
+
+        if user and check_password_hash(user.password_hash, password):
+            login_user(user)
+            flash("Erfolgreich eingeloggt!", "success")
+            return redirect(url_for('main.index'))
+        else:
+            return render_template("login.html", error="Ungültige E-Mail oder Passwort!")
     return render_template("login.html")
 
 
@@ -70,4 +91,7 @@ def login():
 @login_required
 def logout():
     """Logout-Route"""
+
+    logout_user()
+    flash("Du wurdest abgemeldet!", "info")
     return redirect(url_for('main.index'))
