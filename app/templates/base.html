@@ -40,5 +40,25 @@ https://askai.glarity.app/de/search/Wie-kann-man-Notizen-in-HTML-einf%C3%BCgen -
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container"> <!-- für flash massages-->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert"> <!--alert box zeigt automatisch nachricht wie erfolgreich registriert zb-->
+                            {{ message }}
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                     {% endfor %}
+                 {% endif %}
+        {% endwith %}
+
+
+        
+
+
+
+
+
+
+
 </body>
