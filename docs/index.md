@@ -3,14 +3,13 @@ title: Home
 nav_order: 0
 ---
 
-{: .attention }
-> Any text enclosed by `[ ]` are **placeholders**, including the opening and closing brackets.
->
-> You may delete this `attention` box.
+# TravelMate
 
-# [Project Name]
+TravelMate ist eine zweiseitige Reiseplattform, die Menschen miteinander verbindet, die Reisen organisieren möchten, und Personen, die nach passenden Reisepartnern suchen. Nutzer können eigene Reisen erstellen, verfügbare Trips durchsuchen und sich auf Reisen bewerben, die ihren Interessen, ihrem Budget und ihren Reisevorstellungen entsprechen.
 
-[Include a short project description. Below, include a representative, attractive screenshot of your final web app.]
+Die Plattform löst das häufige Problem, geeignete Mitreisende zu finden, indem sie einen strukturierten Matching-Prozess zwischen Reise-Hosts und Reisenden als Joiner ermöglicht. Hosts können Bewerbungen verwalten und Teilnehmer auswählen, während Reisende den Status ihrer Bewerbungen über ein persönliches Dashboard verfolgen können.
+
+[Below, include a representative, attractive screenshot of your final web app.]
 
 ## Sample App Screen
 
