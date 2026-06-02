@@ -23,6 +23,18 @@ https://askai.glarity.app/de/search/Wie-kann-man-Notizen-in-HTML-einf%C3%BCgen -
 <!-- Quellen https://getbootstrap.com/docs/4.0/components/navbar/
 
 -->
+    {% if current_user.is_authenticated %}
+                    <!--eingeloggt -->
+                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="#">Mein Profil</a>
+                    <a class="nav-link text-warning" href="#">Logout</a>
+                {% else %}
+                    <!--nicht eingeloggt -->
+                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#">Registrieren</a>
+                {% endif %}
 
+<!-- Quellen
+-->
 
 </body>
