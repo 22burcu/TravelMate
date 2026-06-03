@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8"
-    <title>TravelMate</title>
-</head>
-<body>
-<h1>TraveMate läuft!!</h1>
-<p>Wenn du das siehst, funktioniert die App-Factory</p>
-</body>
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center py-5">
+
+    <h1 class="display-4 mb-3">Willkommen bei TravelMate 🌍</h1>
+
+    <p class="lead text-muted mb-4">
+        Finde Mitreisende oder schließe dich einer bestehenden Reise an.
+    </p>
+
+    {% if not current_user.is_authenticated %}
+
+        <a href="{{ url_for('auth.register') }}" class="btn btn-dark btn-lg me-2">
+            Jetzt registrieren
+        </a>
+        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-dark btn-lg">
+            Login
+        </a>
+
+    {% else %}
+
+        <div class="alert alert-success" role="alert">
+            <h4>Willkommen, {{ current_user.first_name }}! </h4>
+            <p>Schön dass du da bist</p>         
+        </div>
+        
+    {% endif %}
+
+</div>
+
+{% endblock %}
