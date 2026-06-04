@@ -1,5 +1,6 @@
 from flask import Flask
 from .models import db, User
+from .trips import trips_bp
 from flask_login import LoginManager
 
 login_manager = LoginManager()
@@ -29,6 +30,6 @@ def create_app():
 
     app.register_blueprint(main.bp)
     app.register_blueprint(auth_bp)
-
+    app.register_blueprint(trips_bp)
 
     return app
