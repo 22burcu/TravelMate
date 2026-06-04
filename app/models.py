@@ -46,7 +46,7 @@ class Trip(db.Model):
     travel_style_id = db.Column(db.Integer, db.ForeignKey("travel_styles.ts_id"), nullable=False)
     origin_id = db.Column(db.Integer, db.ForeignKey("locations.l_id"), nullable=False)                           # Reiseziel = Startpunkt, wurde geändert, da es sonst zu Problemen mit der Datenbank kommt von (location = db.Column(db.String(255), nullable=False)) auf jetzigen version.
     destination_id = db.Column(db.Integer, db.ForeignKey("locations.l_id"), nullable=False)                            # aus fester Python-Liste, hier auch genau so.
-    continent = db.Column(db.String(50), nullable=False)
+    continent = db.Column(db.String(50), nullable=False)                                                         #Hier nochmal für herr Eck, bei mir in VSC gibt es fehler weswegen ich nicht committen kann.
     end_date = db.Column(db.Date, nullable=False)
     max_participants = db.Column(db.Integer, nullable=False)
     budget_min = db.Column(db.Integer, nullable=False)
