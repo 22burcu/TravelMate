@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--skalierung für verschiedene geräte (viewport sichtbarer bereich einer webseite)-->
     <title>TravelMate</title> <!--initial scale anfänglicher zoomfaktor der seite bei 0 -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"> <!--holt bootstrap styling datei aus dem internet + prüft ob die datei nicht verändert wurde + erlaubt dem browser von einer anderen domain zu laden --> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <--!die icons--> 
 </head> 
 
-<!-- Quelle https://html.carl-orff-gym.de/html/aufbau-einer-html-seite/
-https://askai.glarity.app/de/search/Wie-kann-man-Notizen-in-HTML-einf%C3%BCgen -->
+<!-- Quellen
+basics  https://html.carl-orff-gym.de/html/aufbau-einer-html-seite/
+notizen https://askai.glarity.app/de/search/Wie-kann-man-Notizen-in-HTML-einf%C3%BCgen 
+Icons   https://icons.getbootstrap.com/
+bootstrap https://getbootstrap.com/docs/5.3/getting-started/download/
+--> 
 
 <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand navbar-dark bg-dark mb-4"> 
         <div class="container">
             <a class="navbar-brand" href="#"> <!-- platzhalter für link für #-->
                 <i class="bi bi-airplane"></i> TravelMate
             </a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="#">Trips finden</a> <!-- TRIPS LINK - link zur trip-suche PLATZHALTER-->
-<!-- Quellen https://getbootstrap.com/docs/4.0/components/navbar/
-
+<!--Quellen  
+    https://getbootstrap.com/docs/4.0/components/navbar/
+    https://mdbootstrap.com/docs/standard/navigation/navbar/
 -->
             {% if current_user.is_authenticated %}
                     <!--eingeloggt -->
@@ -64,7 +71,9 @@ https://askai.glarity.app/de/search/Wie-kann-man-Notizen-in-HTML-einf%C3%BCgen -
         <small>TravelMate &middot; Projektarbeit</small>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!--bootstrap js für interaktive elemente wie zb die alerts vorhin-->
+    <!--bootstrap js für interaktive elemente wie zb die alerts vorhin-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
