@@ -22,11 +22,9 @@ def register():
         confirm_password = request.form.get("confirm_password")
         first_name = request.form.get("first_name")
         last_name = request.form.get("last_name")
-        role = request.form.get("role")
         birth_date_str = request.form.get("birth_date")
-        contact_info = request.form.get("contact_info")
 
-        if not all([email, password, confirm_password, first_name, last_name, role, birth_date_str]):
+        if not all([email, password, confirm_password, first_name, last_name, birth_date_str]):
             return render_template("register.html", error="Alle Felder müssen ausgefüllt sein!")
 
         if password != confirm_password:
@@ -42,11 +40,10 @@ def register():
             new_user = User(
                 email=email,
                 password_hash=hashed_pw,
-                role=role,
+                role="user",
                 first_name=first_name,
                 last_name=last_name,
                 birth_date=birth_date,
-                contact_info=contact_info,
             )
 
             db.session.add(new_user)
