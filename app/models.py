@@ -28,17 +28,6 @@ class TravelStyle(db.Model):
     name = db.Column(db.String(50), nullable=False, unique=True)
     trips = db.relationship('Trip', back_populates='travel_style')
 
-class Location(db.Model):
-    __tablename__ = "locations"
-    l_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    city = db.Column(db.String(100), nullable=False)
-
-    trips_as_origin = db.relationship('Trip', foreign_keys='Trip.origin_id', back_populates='origin')
-    trips_as_destination = db.relationship('Trip', foreign_keys='Trip.destination_id', back_populates='destination')
-
-
-
 class Trip(db.Model):
     __tablename__ = "trips"
     t_id = db.Column(db.Integer, primary_key=True)
