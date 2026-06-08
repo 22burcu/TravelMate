@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from .models import db, Trip, Location
+from .models import db, Trip
 
 trips_bp = Blueprint("trips", __name__)
 
@@ -7,18 +7,10 @@ trips_bp = Blueprint("trips", __name__)
 def create_trip():
     data = request.get_json()
 
-    origin = Location(name=data['origin_name'], city=data['origin_city'])
-    destination = Location(name=data['destination_name'], city=data['destination_city'])
-
-    db.session.add(origin)
-    db.session.add(destination)
-    db.session.flush()
-
     trip = Trip(
         host_u_id=data['user_id'],
         travel_style_id=data['travel_style_id'],
-        origin_id=origin.id,
-        destination_id=destination.id,
+        location=data['location'],
         continent=data['continent'],
         start_date=data['start_date'],
         end_date=data['end_date'],
