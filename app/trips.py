@@ -29,3 +29,8 @@ def create_trip():
         budget_min = request.form.get("budget_min")
         budget_max = request.form.get("budget_max")
         description = request.form.get("description")
+
+        #Schritt 3: Die Datumsfelder in echte Date-Objekte umwandeln
+        start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
+        end_date = datetime.strptime(end_date_str, "%Y-%m-%d").date()           #Quelle: programiz.com
+        
