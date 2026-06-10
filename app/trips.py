@@ -75,17 +75,17 @@ def api_trips():
     #-> liefert die erstellten Trips als JSON zurück
     trips = Trip.query.all()
     result = []
-    for trips in trips:
+    for trip in trips:
         result.append({
             "id": trip.t_id,
             "location": trip.location,
             "continent": trip.continent,
             "travel_style": trip.travel_style.name,
-            "start_date": trip.start_date.isoformat()   #Quelle: geeksforgeeks.com
-            "end_date": trip.end_date.isoformat()
+            "start_date": trip.start_date.isoformat(),   #Quelle: geeksforgeeks.com
+            "end_date": trip.end_date.isoformat(),
             "max_participants": trip.max_participants,
-            "budget_min": trip.budget_min
+            "budget_min": trip.budget_min,
             "budget_max": trip.budget_max,
             "description": trip.description,
         })
-        return jsonify(result)
+    return jsonify(result)
