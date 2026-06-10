@@ -49,3 +49,23 @@ def create_trip():
             flash(error, "danger")
             return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
         
+        trip = Trip(
+            host_u_id=current_user.u_id,
+            travel_style_id=int(travel_style_id),
+            location=location,
+            continent=continent,
+            start_date=start_date,
+            end_date=end_date,
+            max_participants=int(max_participants),
+            budget_min=int(budget_min),
+            budget_max=int(budget_max),
+            description=description,
+        )
+        db.session.add(trip)
+        db.session.commit()
+
+        flash("Reise erfolgreich erstellt!", "success")
+        #Platzhalter für später. Der User muss nach der erfolgreichen Erstellung wieder ins Dashboard zurück!
+        return redirect(url_for("main.index"))
+    
+    return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
