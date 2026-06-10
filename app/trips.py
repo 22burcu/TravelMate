@@ -33,4 +33,14 @@ def create_trip():
         #Schritt 3: Die Datumsfelder in echte Date-Objekte umwandeln
         start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
         end_date = datetime.strptime(end_date_str, "%Y-%m-%d").date()           #Quelle: programiz.com
+
+        #Schritt 4: Validierung der Bedingung
+        if end_date < start_date:
+            flash("Das Enddatum darf nicht vor dem Startdatum liegen.", "danger")
+            return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
+        
+        if int(budget_max) < int(budget_min):
+            flash("Das maximale Budget darf nicht kleiner sein, als das minimale Budget", "danger")
+            return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
+        
         
