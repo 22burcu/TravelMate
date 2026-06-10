@@ -9,12 +9,7 @@ trips_bp = Blueprint("trips", __name__)
 
 @trips_bp.route("/trips/new", methods=["GET", "POST"])
 @login_required                                                         
-def create_trip():
-    # Schritt 1: Nur Hosts dürfen Reisen erstellen
-    if current_user.role != "host":
-        flash("Nur Hosts können Reisen erstellen.", "danger")
-        return redirect(url_for("main.index"))
-    
+def create_trip():    
     #Auswahlliste für das Formular: Reisestile aus der DB, Kontinente aus fester Liste
     travel_styles = TravelStyle.query.all()
 
