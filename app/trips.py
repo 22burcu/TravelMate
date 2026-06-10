@@ -43,4 +43,9 @@ def create_trip():
             flash("Das maximale Budget darf nicht kleiner sein, als das minimale Budget", "danger")
             return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
         
+        #Schritt 5: Geschäftsregeln prüfen (max. 3 offene Trips, keine Überschneidungen!)
+        allowed, error = can_host_create_trip(current_user.u_id, start_date, end_date)
+        if not allowed:
+            flash(error, "danger")
+            return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
         
