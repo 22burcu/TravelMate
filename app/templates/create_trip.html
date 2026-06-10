@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+        <div class="card shadow-sm mt-4">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">Neue Reise erstellen</h2>
+
+                <form method="POST" action="{{ url_for('trips.create_trip') }}">
+
+                    <div class="mb-3">
+                        <label class="form-label">Reiseziel (Stadt / Region)</label>
+                        <input type="text" class="form-control" name="location" required
+                               placeholder="z.B. Tokyo"
+                               value="{{ request.form.get('location', '') }}">
+                        <div class="form-text">Dieser Ort ist Treffpunkt und Reiseziel zugleich – jeder reist selbst an.</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Kontinent</label>
+                            <select class="form-select" name="continent" required>
+                                <option value="" disabled selected>Bitte wählen ...</option>
+                                {% for c in continents %}
+                                    <option value="{{ c }}" {% if request.form.get('continent') == c %}selected{% endif %}>{{ c }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Reisestil</label>
+                            <select class="form-select" name="travel_style_id" required>
+                                <option value="" disabled selected>Bitte wählen ...</option>
+                                {% for ts in travel_styles %}
+                                    <option value="{{ ts.ts_id }}" {% if request.form.get('travel_style_id') == ts.ts_id|string %}selected{% endif %}>{{ ts.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Startdatum</label>
+                            <input type="date" class="form-control" name="start_date" required
+                                   value="{{ request.form.get('start_date', '') }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Enddatum</label>
+                            <input type="date" class="form-control" name="end_date" required
+                                   value="{{ request.form.get('end_date', '') }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Gewünschte Anzahl Mitreisender</label>
+                        <input type="number" class="form-control" name="max_participants" min="1" required
+                               value="{{ request.form.get('max_participants', '') }}">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Budget von (€)</label>
+                            <input type="number" class="form-control" name="budget_min" min="0" required
+                                   value="{{ request.form.get('budget_min', '') }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Budget bis (€)</label>
+                            <input type="number" class="form-control" name="budget_max" min="0" required
+                                   value="{{ request.form.get('budget_max', '') }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Beschreibung</label>
+                        <textarea class="form-control" name="description" rows="4"
+                                  placeholder="Worum geht es bei der Reise? Was ist geplant?">{{ request.form.get('description', '') }}</textarea>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-dark">Reise veröffentlichen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
