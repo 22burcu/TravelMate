@@ -12,5 +12,15 @@ def dashboard():
         today = date.today()
         open_trips = Trip.query.filter(
             Trip.host_u_id == current_user.u_id,
+            Trip.start_date > today
+        ).all()  
+        active_trips = Trip.query.filter(
+            Trip.host_u_id == current_user.u_id,
+            Trip.start_date <= today,
             Trip.end_date >= today
-        ).all()   
+        ).all()
+        past_trips = Trip.query.filter(
+            Trip.host_u_id == current_user.u_id,
+            Trip.end_date < today
+        ).all() 
+        return render_template("dashboard.html", applications=applications, open_trips=open_trips, active_trips=active_trips, past_trips=past_trips)
