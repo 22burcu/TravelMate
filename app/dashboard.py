@@ -1,14 +1,13 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
-from .models import Trip, db, Application
+from .models import Trip, Application
+from datetime import date
 
 dashboard_bp = Blueprint("dashboard", __name__)
-@dashboard_bp.route("/dashboard")
-@login_required
 
+@dashboard_bp.route("/dashboard/host")
 @login_required
-def dashboard():
-        applications = Application.query.filter_by(joiner_u_id=current_user.u_id).all()
+def host_dashboard():
         today = date.today()
         open_trips = Trip.query.filter(
             Trip.host_u_id == current_user.u_id,
@@ -23,4 +22,10 @@ def dashboard():
             Trip.host_u_id == current_user.u_id,
             Trip.end_date < today
         ).all() 
-        return render_template("dashboard.html", applications=applications, open_trips=open_trips, active_trips=active_trips, past_trips=past_trips)
+        return render_template("host_dashboard.html", open_trips=open_trips, active_trips=active_trips, past_trips=past_trips)
+
+@dashboard_bp.route("/dashboard/joiner")
+@login_required
+def joiner_dashboard():
+    applications = Application.query.filter_by(joiner_u_id=current_user.u_id).all()
+    return render_template("joiner_dashboard.html", applications=applications)
