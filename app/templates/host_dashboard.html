@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    
+    <!-- BUTTONS (Tabs) -->
+    <div class="mb-4">
+        <a href="{{ url_for('dashboard.host_dashboard') }}" 
+           class="btn btn-dark">
+            Host
+        </a>
+        <a href="{{ url_for('dashboard.joiner_dashboard') }}" 
+           class="btn btn-outline-dark">
+            Joiner
+        </a>
+    </div>
+
+    <h1>Meine Reisen (Host)</h1>
+    <hr>
+
+    <!-- OFFENE REISEN -->
+    <h3 class="mt-5">Offene Reisen (noch nicht gestartet)</h3>
+    
+    {% if open_trips %}
+        <div class="row">
+            {% for trip in open_trips %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card border-info">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ trip.location }}</h5>
+                            <p class="card-text">
+                                <strong>{{ trip.continent }}</strong><br>
+                                <small class="text-muted">{{ trip.travel_style.name }}</small><br>
+                                <br>
+                                {{ trip.start_date }} - {{ trip.end_date }}<br>
+                                Max: {{ trip.max_participants }} Personen<br>
+                                €{{ trip.budget_min }} - €{{ trip.budget_max }}
+                            </p>
+                            {% if trip.description %}
+                                <p class="card-text"><small>{{ trip.description }}</small></p>
+                            {% endif %}
+                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            <a href="#" class="btn btn-sm btn-secondary">Bewerbungen</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            Keine offenen Reisen.
+        </div>
+    {% endif %}
+
+    <!-- AKTIVE REISEN -->
+    <h3 class="mt-5">Aktive Reisen (gerade laufend)</h3>
+    
+    {% if active_trips %}
+        <div class="row">
+            {% for trip in active_trips %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card border-success">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ trip.location }}</h5>
+                            <p class="card-text">
+                                <strong>{{ trip.continent }}</strong><br>
+                                <small class="text-muted">{{ trip.travel_style.name }}</small><br>
+                                <br>
+                                {{ trip.start_date }} - {{ trip.end_date }}<br>
+                                Max: {{ trip.max_participants }} Personen<br>
+                                €{{ trip.budget_min }} - €{{ trip.budget_max }}
+                            </p>
+                            {% if trip.description %}
+                                <p class="card-text"><small>{{ trip.description }}</small></p>
+                            {% endif %}
+                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            <a href="#" class="btn btn-sm btn-secondary">Bewerbungen</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            Keine aktiven Reisen.
+        </div>
+    {% endif %}
+
+    <!-- VERGANGENE REISEN -->
+    <h3 class="mt-5">Vergangene Reisen (abgeschlossen)</h3>
+    
+    {% if past_trips %}
+        <div class="row">
+            {% for trip in past_trips %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card border-secondary">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ trip.location }}</h5>
+                            <p class="card-text">
+                                <strong>{{ trip.continent }}</strong><br>
+                                <small class="text-muted">{{ trip.travel_style.name }}</small><br>
+                                <br>
+                                {{ trip.start_date }} - {{ trip.end_date }}<br>
+                                Max: {{ trip.max_participants }} Personen<br>
+                                €{{ trip.budget_min }} - €{{ trip.budget_max }}
+                            </p>
+                            {% if trip.description %}
+                                <p class="card-text"><small>{{ trip.description }}</small></p>
+                            {% endif %}
+                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            Keine vergangenen Reisen.
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
