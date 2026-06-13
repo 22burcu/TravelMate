@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    
+    <!-- BUTTONS (Tabs) -->
+    <div class="mb-4">
+        <a href="{{ url_for('dashboard.host_dashboard') }}" 
+           class="btn btn-outline-dark">
+            Host
+        </a>
+        <a href="{{ url_for('dashboard.joiner_dashboard') }}" 
+           class="btn btn-dark">
+            Joiner
+        </a>
+    </div>
+
+    <h1>Meine Bewerbungen (Joiner)</h1>
+    <hr>
+    
+    {% if applications %}
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Reise</th>
+                    <th>Host</th>
+                    <th>Reisestil</th>
+                    <th>Datum</th>
+                    <th>Budget</th>
+                    <th>Status</th>
+                    <th>Aktionen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for app in applications %}
+                    <tr>
+                        <td><strong>{{ app.trip.location }}</strong></td>
+                        <td>{{ app.trip.host.first_name }} {{ app.trip.host.last_name }}</td>
+                        <td>{{ app.trip.travel_style.name }}</td>
+                        <td>
+                            <small>{{ app.trip.start_date }} - {{ app.trip.end_date }}</small>
+                        </td>
+                        <td>
+                            <small>€{{ app.trip.budget_min }} - €{{ app.trip.budget_max }}</small>
+                        </td>
+                        <td>
+                            {% if app.status == 'pending' %}
+                                <span class="badge bg-warning">Ausstehend</span>
+                            {% elif app.status == 'accepted' %}
+                                <span class="badge bg-success">Akzeptiert</span>
+                            {% elif app.status == 'rejected' %}
+                                <span class="badge bg-danger">Abgelehnt</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">
+            Du hast dich noch bei keiner Reise beworben.
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
