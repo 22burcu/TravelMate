@@ -24,7 +24,7 @@ bootstrap https://getbootstrap.com/docs/5.3/getting-started/download/
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-dark mb-4"> 
         <div class="container">
-            <a class="navbar-brand" href="#"> <!-- platzhalter für link für #-->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}"> <!-- platzhalter für link für #-->
                 <i class="bi bi-airplane"></i> TravelMate
             </a>
             <div class="navbar-nav ms-auto">
