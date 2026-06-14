@@ -24,7 +24,7 @@ bootstrap https://getbootstrap.com/docs/5.3/getting-started/download/
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-dark mb-4"> 
         <div class="container">
-            <a class="navbar-brand" href="#"> <!-- platzhalter für link für #-->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}"> <!-- platzhalter für link für #-->
                 <i class="bi bi-airplane"></i> TravelMate
             </a>
             <div class="navbar-nav ms-auto">
@@ -37,13 +37,13 @@ bootstrap https://getbootstrap.com/docs/5.3/getting-started/download/
 
             {% if current_user.is_authenticated %}
                     <!--eingeloggt -->
-                    <a class="nav-link" href="#">Dashboard</a>      <!--auf horizontaler ansicht sichtbar-->
+                    <a class="nav-link" href="{{ url_for('dashboard.host_dashboard') }}">Dashboard</a>      <!--auf horizontaler ansicht sichtbar-->
                     <a class="nav-link" href="#">Mein Profil</a>
-                    <a class="nav-link text-warning" href="#">Logout</a>
+                    <a class="nav-link text-warning" href="{{ url_for('auth.logout') }}">Logout</a>
                 {% else %}
                     <!--nicht eingeloggt -->
-                    <a class="nav-link" href="#">Login</a>          <!--auf horizontaler ansicht sichtbar-->
-                    <a class="nav-link" href="#">Registrieren</a>
+                    <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>          <!--auf horizontaler ansicht sichtbar-->
+                    <a class="nav-link" href="{{ url_for('auth.register') }}">Registrieren</a>
                 {% endif %}
 
             </div>
