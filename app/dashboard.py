@@ -1,10 +1,10 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from .models import Trip, db, Application
+from datetime import date
 
 dashboard_bp = Blueprint("dashboard", __name__)
 @dashboard_bp.route("/dashboard")
-@login_required
 
 @login_required
 def dashboard():
