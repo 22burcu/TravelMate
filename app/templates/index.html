@@ -15,6 +15,22 @@
 
 
 
+    <div class="row justify-content-center mb-5">       <!-- suchleiste -->
+        <div class="col-md-6">
+            <form action="{{ url_for('trips.trips_list') }}" method="GET">
+                <div class="input-group input-group-lg">
+                    <input type="text" name="destination" class="form-control" 
+                           placeholder="Wohin möchtest du reisen? z.B. Tokyo">
+                    <button class="btn btn-dark" type="submit">
+                        <i class="bi bi-search"></i> Suchen
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
     {% if not current_user.is_authenticated %}
 
         <a href="{{ url_for('auth.register') }}" class="btn btn-dark btn-lg me-2">
