@@ -1,10 +1,9 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash, jsonify
 from flask_login import login_required, current_user
 from datetime import datetime
-from .models import db, Trip, TravelStyle
+from .models import db, Trip, TravelStyle, Location
 from .constants import CONTINENTS
 from .business_rules import can_host_create_trip
-from .models import Location
 
 trips_bp = Blueprint("trips", __name__)
 
@@ -16,8 +15,7 @@ def create_trip():
 
     if request.method == "POST":
         #Schritt 2 -> die notwendigen Formulardaten holen
-        origin_city = request.form.get("origin_city")
-        destination_city = request.form.get("destination_city")
+        location = request.form.get("location")
         continent = request.form.get("continent")
         travel_style_id = request.form.get("travel_style_id")
         start_date_str = request.form.get("start_date")
@@ -46,10 +44,18 @@ def create_trip():
             flash(error, "danger")
             return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
         
+
+
+
+        destination = Location(name=location, city=location)
+        db.session.add(destination)
+        db.session.flush()
+
+        
         trip = Trip(
             host_u_id=current_user.u_id,
             travel_style_id=int(travel_style_id),
-            origin_id=origin.l_id,
+            origin_id=destination.l_id,
             destination_id=destination.l_id,
             continent=continent,
             start_date=start_date,
@@ -76,7 +82,7 @@ def api_trips():
     for trip in trips:
         result.append({
             "id": trip.t_id,
-            "location": trip.location,
+            "destination": trip.destination.city,
             "continent": trip.continent,
             "travel_style": trip.travel_style.name,
             "start_date": trip.start_date.isoformat(),   #Quelle: geeksforgeeks.com
