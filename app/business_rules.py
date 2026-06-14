@@ -32,7 +32,7 @@ def can_host_create_trip(host_id, new_start, new_end):
     # Regel 2: keine zeitliche Überschneidung mit bestehenden Trips
     for trip in open_trips:
         if date_ranges_overlap(new_start, new_end, trip.start_date, trip.end_date):
-            return False, f"Die Reise überschneidet sich zeitlich mit deiner Reise nach {trip.destination}."
+            return False, f"Die Reise überschneidet sich zeitlich mit deiner Reise nach {trip.destination.city}."
 
     return True, None
 
