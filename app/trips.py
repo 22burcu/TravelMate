@@ -4,6 +4,7 @@ from datetime import datetime
 from .models import db, Trip, TravelStyle
 from .constants import CONTINENTS
 from .business_rules import can_host_create_trip
+from .models import Location
 
 trips_bp = Blueprint("trips", __name__)
 
@@ -15,6 +16,8 @@ def create_trip():
 
     if request.method == "POST":
         #Schritt 2 -> die notwendigen Formulardaten holen
+        origin_city = request.form.get("origin_city")
+        destination_city = request.form.get("destination_city")
         continent = request.form.get("continent")
         travel_style_id = request.form.get("travel_style_id")
         start_date_str = request.form.get("start_date")
@@ -46,7 +49,8 @@ def create_trip():
         trip = Trip(
             host_u_id=current_user.u_id,
             travel_style_id=int(travel_style_id),
-            location=location,
+            origin_id=origin.l_id,
+            destination_id=destination.l_id,
             continent=continent,
             start_date=start_date,
             end_date=end_date,
