@@ -22,7 +22,7 @@ bootstrap https://getbootstrap.com/docs/5.3/getting-started/download/
 
 
 <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark mb-4"> 
+    <nav class="navbar navbar-expand navbar-dark bg-dark"> 
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('main.index') }}"> <!-- platzhalter für link für #-->
                 <i class="bi bi-airplane"></i> TravelMate
@@ -55,7 +55,7 @@ ansicht     https://www.w3schools.com/bootstrap4/bootstrap_navs.asp
 schleife    https://gist.github.com/leongjinqwen/a205cbe8185d8c83f9d300cc6c8634f1
 -->
 
-
+    {% block fullwidth %}{% endblock %}
     <div class="container"> <!-- für flash massages-->
         {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -75,15 +75,14 @@ struktur https://riptutorial.com/flask/example/32262/flashing-with-categories
 warning https://getbootstrap.com/docs/4.0/components/alerts/
 -->
 
-
-    <footer class="bg-dark text-white text-center py-4 mt-5">   <!-- steht ganz unten auf der seite-->
-         <div class="container">
-            <p>&copy; 2026 TravelMate. Alle Rechte reserviert.</p>
-            <a href="#">Impressum</a> · 
-            <a href="#">Datenschutz</a> · 
-            <a href="#">Kontakt</a>
-        </div>
-    </footer>
+<footer class="footer mt-auto py-4 bg-dark text-white text-center">
+    <div class="container">
+        <p>&copy; 2026 TravelMate. Alle Rechte reserviert.</p>
+        <a href="#" class="text-white">Impressum</a> · 
+        <a href="#" class="text-white">Datenschutz</a> · 
+        <a href="#" class="text-white">Kontakt</a>
+    </div>
+</footer>
 
     <!--bootstrap js für interaktive elemente wie zb die alerts vorhin-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -91,6 +90,12 @@ warning https://getbootstrap.com/docs/4.0/components/alerts/
     <style>
         body {
             margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        footer {
+            margin-top: auto !important;
         }
     </style>
 
@@ -100,6 +105,7 @@ warning https://getbootstrap.com/docs/4.0/components/alerts/
 
 <!--Quellen
 script  https://getbootstrap.com/docs/5.3/getting-started/download/
-footer  https://mdbootstrap.com/docs/standard/navigation/footer/
+footer  https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/#
+        https://mdbootstrap.com/docs/standard/navigation/footer/
         https://stackoverflow.com/questions/73868914/delete-the-blank-area-under-the-container-in-bootstrap
 -->
