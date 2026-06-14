@@ -15,7 +15,6 @@ def create_trip():
 
     if request.method == "POST":
         #Schritt 2 -> die notwendigen Formulardaten holen
-        location = request.form.get("location")
         continent = request.form.get("continent")
         travel_style_id = request.form.get("travel_style_id")
         start_date_str = request.form.get("start_date")
