@@ -45,27 +45,6 @@ bilder https://unsplash.com/de/fotos/silhouettenfoto-von-sechs-personen-auf-dem-
         </div>
     </div>
 
-
-
-    {% if not current_user.is_authenticated %}
-
-        <a href="{{ url_for('auth.register') }}" class="btn btn-dark btn-lg me-2">
-            Jetzt registrieren
-        </a>
-        <a href="{{ url_for('auth.login') }}" class="btn btn-dark btn-lg">
-            Login
-        </a>
-        
-
-    {% else %}
-
-        <div class="alert alert-success" role="alert">
-            <h4>Willkommen, {{ current_user.first_name }}! </h4>
-            <p>Schön dass du da bist</p>         
-        </div>
-        
-    {% endif %}
-
 </div>
 </div>
 
