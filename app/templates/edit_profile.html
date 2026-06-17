@@ -17,6 +17,27 @@
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
 
+                    <form method="POST">
+
+                        <!-- Bio -->
+                        <div class="mb-4">
+                            <label for="bio" class="form-label fw-bold">Bio</label>
+                            <textarea class="form-control" id="bio" name="bio" rows="4"
+                                placeholder="Erzähl etwas über dich...">{{ user.bio or '' }}</textarea>
+                            <div class="form-text text-muted">Wird auf deinem Profil angezeigt.</div>
+                        </div>
+
+                        <!-- Kontakt-Info -->
+                        <div class="mb-4">
+                            <label for="contact_info" class="form-label fw-bold">Kontakt-Info</label>
+                            <input type="text" class="form-control" id="contact_info" name="contact_info"
+                                placeholder="z.B. Instagram, Telegram, WhatsApp..."
+                                value="{{ user.contact_info or '' }}">
+                            <div class="form-text text-muted">So können dich Mitreisende erreichen.</div>
+                        </div>
+
+                    </form>
+
                 </div>
             </div>
 
