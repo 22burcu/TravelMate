@@ -6,8 +6,6 @@ dashboard_bp = Blueprint("dashboard", __name__)
 @dashboard_bp.route("/dashboard")
 @login_required
 
-@dashboard_bp.route("/dashboard/host")
-@login_required
 def host_dashboard():
         today = date.today()
         open_trips = Trip.query.filter(
