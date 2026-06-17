@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center pt-4 pb-2">
+
+                    <!-- Avatar Kreis -->
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                         style="width: 90px; height: 90px; font-size: 2rem;">
+                        {{ user.first_name[0] | upper }}{{ user.last_name[0] | upper }}
+                    </div>
+
+                    <!-- Name und Email -->
+                    <h4 class="mb-0 fw-bold">{{ user.first_name }} {{ user.last_name }}</h4>
+                    <p class="text-muted mb-1">{{ user.email }}</p>
+                    <p class="text-muted small mb-3">
+                        Mitglied seit {{ user.created_at.strftime('%B %Y') }}
+                    </p>
+
+                    <hr>
+
+                    <!-- Bio -->
+                    <div class="text-start mb-3">
+                        <p class="fw-bold mb-1">Bio</p>
+                        <p class="text-muted mb-0">
+                            {% if user.bio %}
+                                {{ user.bio }}
+                            {% else %}
+                                <em>Noch keine Bio hinterlegt.</em>
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <!-- Kontakt-Info -->
+                    <div class="text-start mb-4">
+                        <p class="fw-bold mb-1">Kontakt-Info</p>
+                        <p class="text-muted mb-0">
+                            {% if user.contact_info %}
+                                {{ user.contact_info }}
+                            {% else %}
+                                <em>Keine Kontakt-Info hinterlegt.</em>
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="d-grid gap-2 mb-2">
+                        <a href="{{ url_for('profile.edit_profile') }}" class="btn btn-primary">
+                            Profil bearbeiten
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

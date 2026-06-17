@@ -74,6 +74,12 @@ def create_trip():
     
     return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
 
+
+@trips_bp.route("/trips")
+def trips_list():
+    trips = Trip.query.all()
+    return render_template("trips.html", trips=trips)
+
 @trips_bp.route("/api/trips", methods=["GET"])
 def api_trips():
     #-> liefert die erstellten Trips als JSON zurück
