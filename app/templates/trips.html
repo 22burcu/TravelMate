@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row justify-content-center mb-5">       <!-- suchleiste -->
+        <div class="col-md-10">
+            <form action="{{ url_for('trips.trips_list') }}" method="GET">
+                <div class="input-group input-group-lg">
+                    <input type="text" name="destination" class="form-control" 
+                       placeholder="Wohin möchtest du reisen? z.B. Tokyo"
+                        value="{{ destination }}">
+                    <button class="btn btn-dark" type="submit">
+                        <i class="bi bi-search"></i> Suchen
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!--quellen
+justify content https://getbootstrap.com/docs/5.0/utilities/flex/
+grid system     https://getbootstrap.com/docs/5.0/layout/grid/
+columns col-md  https://stackoverflow.com/questions/24175998/meaning-of-numbers-in-col-md-4-col-xs-1-col-lg-2-in-bootstrap
+input           https://getbootstrap.com/docs/5.3/forms/input-group/
+value           https://jinja.palletsprojects.com/en/stable/templates/
+                https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#value
+-->
+
+{% endblock %}
