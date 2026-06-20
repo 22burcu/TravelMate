@@ -26,4 +26,33 @@ value           https://jinja.palletsprojects.com/en/stable/templates/
                 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#value
 -->
 
+<!--die cards container-->
+        <div class="row">
+            {% for trip in trips %}
+                <div class="col-md-4 mb-4">  <!--col-md-4 weil bootstrap 12 spalten hat, 12:4=3 karten pro zeile-->
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-geo-alt"></i> 
+                                {{ trip.destination.city }}
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-dark btn-sm w-100">
+                                Details ansehen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+<!-- quellen
+schleife    https://jinja.palletsprojects.com/en/stable/templates/
+card        https://getbootstrap.com/docs/5.3/components/card/
+grid        https://getbootstrap.com/docs/5.3/layout/grid/   col-md-4 weil bootstrap 12 spalten hat, 12:4=3 karten pro zeile
+icons       https://icons.getbootstrap.com/
+
+-->
+
 {% endblock %}
