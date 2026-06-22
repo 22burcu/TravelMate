@@ -77,8 +77,26 @@ def create_trip():
 
 @trips_bp.route("/trips")
 def trips_list():
-    trips = Trip.query.all()
-    return render_template("trips.html", trips=trips)
+    destination = request.args.get("destination", "")
+    
+    if destination:
+        trips = Trip.query.join(Location, Trip.destination_id == Location.l_id)\
+                    .filter(Location.city.ilike(f"%{destination}%"))\
+                    .all()
+    else:
+        trips = Trip.query.all()
+    
+    return render_template("trips.html", trips=trips, destination=destination)
+
+""" quellen
+flask request   https://www.geeksforgeeks .org/python/get-the-data-received-in-a-flask-request/
+daten aus tabellen holen query join/all    https://docs.sqlalchemy.org/en/20/orm/queryguide/
+suche ohne groß/kleinschreibung .filter() .ilike() https://docs.sqlalchemy.org/en/20/core/operators.html#sqlalchemy.operators.ilike_op
+https://www.digitalocean.com/community/tutorials/how-to-use-flask-sqlalchemy-to-interact-with-databases-in-a-flask-application
+finde alles was tokyo iwo im namen hat durch f"%{} https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
+
+"""
+
 
 @trips_bp.route("/api/trips", methods=["GET"])
 def api_trips():
