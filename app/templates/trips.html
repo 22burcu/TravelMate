@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="row justify-content-center mb-5">       <!-- suchleiste -->
+    <div class="row justify-content-center mb-5 mt-5">       <!-- suchleiste -->
         <div class="col-md-10">
             <form action="{{ url_for('trips.trips_list') }}" method="GET">
                 <div class="input-group input-group-lg">
@@ -91,7 +91,7 @@ button btn  https://getbootstrap.com/docs/5.3/components/buttons/
 zb trip.continent https://jinja.palletsprojects.com/en/stable/templates/ variablen aus models.py ziehen
 -->
 
-<!-- keine trips meldung
+<!-- keine trips meldung -->
 {% else %}
     <div class="alert alert-info">
         <i class="bi bi-info-circle"></i> 
@@ -100,7 +100,13 @@ zb trip.continent https://jinja.palletsprojects.com/en/stable/templates/ variabl
         {% else %}
             Noch keine Trips vorhanden.
         {% endif %}
-    </div>-->
+    </div>
 {% endif %}
+<!-- quellen
+schleife    https://jinja.palletsprojects.com/en/stable/templates/#if
+alert       https://getbootstrap.com/docs/5.3/components/alerts/
+icons       https://icons.getbootstrap.com/icons/info-circle/
+text dick   https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
+-->
 {% endblock %}
