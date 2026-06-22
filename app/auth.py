@@ -15,7 +15,9 @@ def register():
 
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
-    
+    #Quelle zu if current_user.is_authenticated
+    #https://www.iditect.com/faq/python/how-to-check-if-a-user-is-logged-in-how-to-properly-use-userisauthenticated-in-python.html
+
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
@@ -23,6 +25,8 @@ def register():
         first_name = request.form.get("first_name")
         last_name = request.form.get("last_name")
         birth_date_str = request.form.get("birth_date")
+       #Quelle zu request.method
+       #1 https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/
 
         if not all([email, password, confirm_password, first_name, last_name, birth_date_str]):
             return render_template("register.html", error="Alle Felder müssen ausgefüllt sein!")
@@ -63,13 +67,17 @@ def register():
 def login():
     """Login-Route"""
     
-    if current_user.is_authenticated:
+    if current_user.is_authenticated:           
         return redirect(url_for('main.index'))
-    
+    #Quelle zu if current_user.is_authenticated
+    #https://www.iditect.com/faq/python/how-to-check-if-a-user-is-logged-in-how-to-properly-use-userisauthenticated-in-python.html
+
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        
+        #Quelle zu request.method
+        #https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/
+
         if not email or not password:
             return render_template("login.html", error="E-Mail und Passwort erforderlich!")
         
@@ -82,7 +90,7 @@ def login():
         else:
             return render_template("login.html", error="Ungültige E-Mail oder Passwort!")
     return render_template("login.html")
-
+   #Quelle: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login-de
 
 @auth_bp.route("/logout")
 @login_required
@@ -92,3 +100,5 @@ def logout():
     logout_user()
     flash("Du wurdest abgemeldet!", "info")
     return redirect(url_for('main.index'))
+#Quellen:
+#https://flask-login.readthedocs.io/en/latest/  (logout)
