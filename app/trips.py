@@ -75,27 +75,67 @@ def create_trip():
     return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
 
 
+
+
+
 @trips_bp.route("/trips")
 def trips_list():
     destination = request.args.get("destination", "")
+    continent = request.args.get("continent", "")
+    travel_style_id = request.args.get("travel_style_id", "")
+    budget_min = request.args.get("budget_min", "")
+    budget_max = request.args.get("budget_max", "")
+    start_date_str = request.args.get("start_date", "")
     
+    query = Trip.query.join(Location, Trip.destination_id == Location.l_id)
+     
     if destination:
-        trips = Trip.query.join(Location, Trip.destination_id == Location.l_id)\
-                    .filter(Location.city.ilike(f"%{destination}%"))\
-                    .all()
-    else:
-        trips = Trip.query.all()
+        query = query.filter(Location.city.ilike(f"%{destination}%"))
+    if continent:
+        query = query.filter(Trip.continent == continent)
+    if travel_style_id:
+        query = query.filter(Trip.travel_style_id == int(travel_style_id))
+    if budget_min:
+        query = query.filter(Trip.budget_max >= int(budget_min))
+    if budget_max:
+        query = query.filter(Trip.budget_min <= int(budget_max))
+    if start_date_str:
+        start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
+        query = query.filter(Trip.start_date >= start_date)
+
+
+    trips = query.all()
+    travel_styles = TravelStyle.query.all()
     
-    return render_template("trips.html", trips=trips, destination=destination)
+    return render_template ("trips.html", 
+            trips=trips, 
+            destination=destination
+            continent=continent,
+            travel_style_id=travel_style_id,
+            budget_min=budget_min,
+            budget_max=budget_max,
+            start_date=start_date_str,
+            continents=CONTINENTS,
+            travel_styles=travel_styles,
+            )
 
 """ quellen
-flask request   https://www.geeksforgeeks .org/python/get-the-data-received-in-a-flask-request/
-daten aus tabellen holen query join/all    https://docs.sqlalchemy.org/en/20/orm/queryguide/
-suche ohne groß/kleinschreibung .filter() .ilike() https://docs.sqlalchemy.org/en/20/core/operators.html#sqlalchemy.operators.ilike_op
 https://www.digitalocean.com/community/tutorials/how-to-use-flask-sqlalchemy-to-interact-with-databases-in-a-flask-application
-finde alles was tokyo iwo im namen hat durch f"%{} https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
+flask request                             https://www.geeksforgeeks .org/python/get-the-data-received-in-a-flask-request/
+daten aus tabellen holen query join/all   https://docs.sqlalchemy.org/en/20/orm/queryguide/
+operatoren wie .ilike()                   https://docs.sqlalchemy.org/en/20/core/operators.html#sqlalchemy.operators.ilike_op
+tokyo iwo im namen suchen f"%{}           https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
+string zu zahl umwandeln                  https://docs.python.org/3/library/functions.html#int
+string zu datum umwandeln                 https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
 
 """
+
+
+
+
+
+
+
 
 
 @trips_bp.route("/api/trips", methods=["GET"])
