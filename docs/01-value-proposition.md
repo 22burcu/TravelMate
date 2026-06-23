@@ -72,7 +72,7 @@ Anzahl gewünschter Personen
 
 Zusätzlich können Joiner gezielt filtern und sich nur auf passende Trips bewerben. Dadurch erhöht sich die Wahrscheinlichkeit erfolgreicher Matches deutlich. 
 
-Filter: Kontinent, alter, geschlecht, budget, reisestil
+Filter: Kontinent, Destination, Budget, Reisestil
 
 Da Hosts mehrere Bewerbungen erhalten können und Joiner verschiedene Trips durchsuchen können, entsteht ein flexibler Matching-Prozess statt einer 1:1-Abhängigkeit.
 
