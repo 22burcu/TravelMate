@@ -29,11 +29,14 @@ def create_app():
     from .trips import trips_bp
     from .dashboard import dashboard_bp
     from .profile import profile_bp 
+    from .application import applications_bp
+
 
     app.register_blueprint(main.bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(trips_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(profile_bp)
+    app.register_blueprint(applications_bp)
 
     return app
