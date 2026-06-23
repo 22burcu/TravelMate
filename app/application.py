@@ -2,7 +2,7 @@ from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_required, current_user
 from .models import db, Application, Trip
 
-applications_bp = Blueprint("applications", _name_)
+applications_bp = Blueprint("applications", __name__)
 
 @applications_bp.route("/trips/<int:trip_id>/apply", methods=["GET", "POST"])
 @login_required
