@@ -32,3 +32,12 @@ def apply(trip_id):
         return redirect(url_for("trips.trip_detail", trip_id=trip_id))
 
     return render_template("apply.html", trip=trip)
+
+# genutzte Quellen
+# blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
+# @login_required                 https://flask-login.readthedocs.io/en/latest/#flask_login.login_required
+# trip holen oder error           https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#get-or-404
+# formulardaten holen             https://flask.palletsprojects.com/en/3.0.x/api/#flask.Request.form
+# speichern in db                 https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#insert-update-delete
+# erfolgsmeldung anzeigen         https://flask.palletsprojects.com/en/3.0.x/patterns/flashing/
+# weiterleiten nach absenden      https://flask.palletsprojects.com/en/3.0.x/api/#flask.redirect
