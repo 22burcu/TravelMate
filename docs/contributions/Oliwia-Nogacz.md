@@ -55,8 +55,8 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 ## Design Decisions that I led
 
-1. [DD #00](../design-decisions/dd-00.md) Suchleiste auf der Landing Page statt auf der Navbar: Die Trip Suche wurde aus der Navbar entfernt und als zentrales Element auf der Landing Page platziert. Ein großes zentrales Suchelement kommuniziert sofort den Zweck der App. Bekannte Plattformen wie Airbnb oder Booking.com machen es genauso. Beweise in Trips.py, trips_list() ohne @login_required, apply() mit @login_required
-2. [DD #01](../design-decisions/dd-01.md) Trip Suche ohne Login zugänglich: jeder kann Trips durchsuchen ohne ein Konto. Bewerben kann man sich aber nur wenn man ein Konto angelegt hat oder sich registriert hat. Dadurch hat man eine niedrige Einstiegshürde. Die Nutzer können die Plattform erst kennenlernen. Zu frühe Login Pflichten können Nutzer abschrecken. Beweis: trips.py, trips_list() ohne @login_required, apply() mit @login_required
+1. [DD #02](../design-decisions/dd-02.md) 
+2. [DD #03](../design-decisions/dd-03.md) 
 
 ---
 
