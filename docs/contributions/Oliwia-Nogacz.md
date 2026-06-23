@@ -49,7 +49,11 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | \# | My contribution | Why I am proud of it | Which challenge I overcame |
 | :-- | :-- | :-- | :-- |
-| 1 | Trips-Suche + Filterfunktion (trips.py + trips.html) Suchleiste nach Reiseziel mit ilike; filter nach Kontinent, Reiseziel, Budget, Datum, Herausforderungen |  |  |
+| 1 | Trips-Suche + Filterfunktion (trips.py + trips.html)
+- Suchleiste nach Reiseziel mit ilike
+- filter nach Kontinent, Reiseziel, Budget, Datum
+|  | Herausforderungen
+- SQLAlchemy JOIN zwischen Trip und Location Tabelle|
 | 2 |  |  |  |
 | 3 |  |  |  |
 
