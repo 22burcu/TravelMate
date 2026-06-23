@@ -22,7 +22,13 @@ def host_dashboard():
             Trip.host_u_id == current_user.u_id,
             Trip.end_date < today
         ).all() 
-        return render_template("host_dashboard.html", open_trips=open_trips, active_trips=active_trips, past_trips=past_trips)
+
+
+        incoming_applications = Application.query.join(Trip).filter(
+            Trip.host_u_id == current_user.u_id
+        ).all()
+
+        return render_template("host_dashboard.html", open_trips=open_trips, active_trips=active_trips, past_trips=past_trips,incoming_applications=incoming_applications)
 
 @dashboard_bp.route("/dashboard/joiner")
 @login_required
