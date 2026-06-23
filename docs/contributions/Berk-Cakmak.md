@@ -46,9 +46,9 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | \# | My contribution | Why I am proud of it | Which challenge I overcame |
 | :-- | :-- | :-- | :-- |
-| 1 | [Describe your individual contribution] |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
+| 1 | Trip-Erstellung: Aufbau der `create_trip`-Seite, über die Hosts eine neue Reise mit allen Angaben anlegen können | Es ist ein vollständiges, eigenständiges Feature, das ich von Grund auf gebaut habe und ohne das die App nichts zum Durchsuchen hätte | Die Formulardaten korrekt zu erfassen und an die Datenbank bzw. die Business Rules anzubinden, sodass nur gültige Reisen gespeichert werden |
+| 2 | Host- und Joiner-Dashboard: Logik in `dashboard.py`, die Reisen nach Status (offen, aktiv, vergangen) aufteilt und anzeigt, inkl. Einbindung des Blueprints | Das Dashboard ist die zentrale Übersicht für die Nutzer und führt mehrere Teile der App zusammen | Die Anzeige interativ zum Laufen zu bringen und dabei Fehler wie doppelte Tabellenzeilen aufzuspüren und zu beheben |
+| 3 | Datenmodell fürs Reiseziel: Umstellung in `models.py` von einem einfachen Ortsfeld auf `origin_id`/`destination_id` plus Anpassung der IDs für eine saubere DB-Struktur | Die Entscheidung hat ein Strukturproblem gelöst und das Datenmodell sauberer gemacht | Neben der Modelländerung hatte ich technische Probleme mit Git/VS Code beim Committen, die ich erst lösen musste, um die Änderung überhaupt einzureichen |
 
 ## Design Decisions that I led
 
@@ -61,11 +61,10 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | Contribution | Proof, e.g., git commits | Sources used |
 | :-- | :-- | :-- |
-| [Design Challenge research] | [Research traces](../product-discovery/01-design-challenge.md#raw-materia) | See left |
-| [Refactor to use Flask Blueprints] | [Commit 1](https://github.com/hwrberlin/fswd/commit/d816e4), [Commit 2](https://github.com/hwrberlin/fswd/commit/75a6c1) | [Flask Documentation](https://flask.palletsprojects.com/en/stable/blueprints/#the-concept-of-blueprints) |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Initiales Projekt-Setup & Trips-Modul: Grundstruktur der Flask-App, Anlage von `trips.py` und `application.py`, Einbindung als Blueprint in `__init__.py` | [f8556d9](https://github.com/22burcu/TravelMate/commit/f8556d9), [7cc3d8c](https://github.com/22burcu/TravelMate/commit/7cc3d8c), [c84d758](https://github.com/22burcu/TravelMate/commit/c84d758), [43ce0ff](https://github.com/22burcu/TravelMate/commit/43ce0ff) | [Flask Documentation](https://flask.palletsprojects.com/en/stable/blueprints/) |
+| Datenmodell Reiseziel: Umstellung in `models.py` auf `origin_id`/`destination_id` und Anpassung der IDs für eine konsistente Datenbankstruktur | [940a701](https://github.com/22burcu/TravelMate/commit/940a701) | [SQLAlchemy Documentation](https://docs.sqlalchemy.org/) |
+| Trip-Erstellung: Aufbau der `create_trip`-Seite (`create_trip.html`), über die Hosts eine neue Reise mit allen Angaben anlegen | [10cee87](https://github.com/22burcu/TravelMate/commit/10cee87) | [Jinja2 Documentation](https://jinja.palletsprojects.com/) |
+| Host-/Joiner-Dashboard: Logik in `dashboard.py` (Reisen nach Status offen/aktiv/vergangen), Einbindung des Dashboard-Blueprints in `__init__.py`, Bugfixes | [db071bd](https://github.com/22burcu/TravelMate/commit/db071bd), [1aadee0](https://github.com/22burcu/TravelMate/commit/1aadee0), [2619024](https://github.com/22burcu/TravelMate/commit/2619024), [0e69ff3](https://github.com/22burcu/TravelMate/commit/0e69ff3), [9aff084](https://github.com/22burcu/TravelMate/commit/9aff084) | [Flask Documentation](https://flask.palletsprojects.com/) |
 
 ---
 
