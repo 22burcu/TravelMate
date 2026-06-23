@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+
+    <!-- zurück-button -->
+    <a href="{{ url_for('trips.trip_detail', trip_id=trip.t_id) }}" class="btn btn-outline-secondary mb-4">
+        ← Zurück zum Trip
+    </a>
+
+    <!-- überschrift -->
+    <h2 class="mb-4">Bewerben für: {{ trip.destination.city }}</h2>
+
+    <!-- bewerbungsformular -->
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <form method="POST">
+
+                <!-- nachricht -->
+                <div class="mb-3">
+                    <label class="form-label"><strong>Nachricht an den Host</strong></label>
+                    <textarea name="message" class="form-control" rows="4" 
+                              placeholder="Stell dich kurz vor und erkläre warum du mitreisen möchtest..."></textarea>
+                </div>
+
+                <!-- budget -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Budget von (€)</strong></label>
+                        <input type="number" name="budget_min" class="form-control" 
+                               placeholder="z.B. 500">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Budget bis (€)</strong></label>
+                        <input type="number" name="budget_max" class="form-control" 
+                               placeholder="z.B. 1000">
+                    </div>
+                </div>
+
+                <!-- absenden -->
+                <button type="submit" class="btn btn-primary w-100">
+                    Bewerbung absenden
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+<!-- quellen
+template vererbung              https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance
+url for link zurück             https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
+variablen aus modellen          https://jinja.palletsprojects.com/en/3.1.x/templates/#variables
+shadow-sm bootstrap card        https://getbootstrap.com/docs/5.3/components/card/
+formular method post            https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form
+mehrzeiliges textfeld           https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/textarea
+beschriftung label form         https://getbootstrap.com/docs/5.3/forms/form-control/#example
+zahlenfeld type number          https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/number
+grid row col md 6               https://getbootstrap.com/docs/5.3/layout/grid/
+-->
