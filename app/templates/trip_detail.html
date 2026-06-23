@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+
+    <!-- zurück-button -->
+    <a href="{{ url_for('trips.trips_list') }}" class="btn btn-outline-secondary mb-4">
+        ← Zurück zur Übersicht
+    </a>
+
+    <!-- trip hauptkarte -->
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+
+            <!-- titel -->
+            <h2 class="card-title mb-1">{{ trip.destination.city }}</h2>
+            <span class="badge bg-secondary mb-3">{{ trip.continent }}</span>
+
+            <!-- infos -->
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <p><strong>Reisestil:</strong> {{ trip.travel_style.name }}</p>
+                    <p><strong>Startdatum:</strong> {{ trip.start_date }}</p>
+                    <p><strong>Enddatum:</strong> {{ trip.end_date }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Budget:</strong> {{ trip.budget_min }}€ – {{ trip.budget_max }}€</p>
+                    <p><strong>Freie Plätze:</strong> {{ trip.max_participants }}</p>
+                    <p><strong>Host:</strong> {{ trip.host.first_name }} {{ trip.host.last_name }}</p>
+                </div>
+            </div>
+
+            <!-- beschreibung -->
+            {% if trip.description %}
+            <hr>
+            <h5>Beschreibung</h5>
+            <p>{{ trip.description }}</p>
+            {% endif %}
+
+            <!-- bewerben button -->
+            <hr>
+            <a href="#" class="btn btn-primary">Bewerben</a>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+<!-- quellen
+template vorbereitung       https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance
+verweis auf                 https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
+bootstrap card shadow sm    https://getbootstrap.com/docs/5.3/components/card/
+grid row col-md-6           https://getbootstrap.com/docs/5.3/layout/grid/
+if schleife jinja2          https://jinja.palletsprojects.com/en/3.1.x/templates/#if
+variablen aus models        https://jinja.palletsprojects.com/en/3.1.x/templates/#variables
+-->
