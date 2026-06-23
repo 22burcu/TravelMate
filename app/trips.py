@@ -109,7 +109,7 @@ def trips_list():
     
     return render_template ("trips.html", 
             trips=trips, 
-            destination=destination
+            destination=destination,
             continent=continent,
             travel_style_id=travel_style_id,
             budget_min=budget_min,
@@ -118,6 +118,7 @@ def trips_list():
             continents=CONTINENTS,
             travel_styles=travel_styles,
             )
+
 
 """ quellen
 https://www.digitalocean.com/community/tutorials/how-to-use-flask-sqlalchemy-to-interact-with-databases-in-a-flask-application
