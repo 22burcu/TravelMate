@@ -27,6 +27,85 @@ value           https://jinja.palletsprojects.com/en/stable/templates/
 button          https://getbootstrap.com/docs/5.3/components/buttons/
 -->
 
+
+<!--filter-->
+  <div class="row g-2">
+
+                <!--kontinent-->
+                <div class="col-md-3">
+                    <select name="continent" class="form-select">
+                        <option value="">Alle Kontinente</option>
+                        {% for c in continents %}
+                            <option value="{{ c }}" 
+                                {% if continent == c %}selected{% endif %}>
+                                {{ c }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                 <!--reisestil-->
+                <div class="col-md-3">
+                    <select name="travel_style_id" class="form-select">
+                        <option value="">Alle Reisestile</option>
+                        {% for ts in travel_styles %}
+                            <option value="{{ ts.ts_id }}"
+                                {% if travel_style_id == ts.ts_id|string %}selected{% endif %}>
+                                {{ ts.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                 <!--budget-->
+                <div class="col-md-3">
+                    <input type="number" name="budget_min" class="form-control"
+                           placeholder="Budget von (€)"
+                           value="{{ budget_min }}">
+                </div>
+
+                <div class="col-md-3">
+                    <input type="number" name="budget_max" class="form-control"
+                           placeholder="Budget bis (€)"
+                           value="{{ budget_max }}">
+                </div>
+
+                <!-- datum -->
+                <div class="col-md-3 mt-2">
+                    <label class="form-label text-muted">
+                        <small>Reise ab Datum:</small>
+                    </label>
+                    <input type="date" name="start_date" class="form-control"
+                           value="{{ start_date }}">
+                </div>
+
+                 <!-- filter zurücksetzen -->
+                <div class="col-md-3 mt-2 d-flex align-items-end">
+                    <a href="{{ url_for('trips.trips_list') }}" 
+                       class="btn btn-outline-dark w-100">
+                        <i class="bi bi-x-circle"></i> Filter zurücksetzen
+                    </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- quellen
+bootstrap grid                  https://getbootstrap.com/docs/5.3/layout/grid/
+abstand zwischen spalten g-2    https://getbootstrap.com/docs/5.3/layout/gutters/
+form-select dropdown            https://getbootstrap.com/docs/5.3/forms/select/
+grundstruktur  aelect           https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select
+grundstruktur option            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+jinja2 for if selected          https://jinja.palletsprojects.com/en/stable/templates/#for
+ts.ts_id string jinja2 filter   https://jinja.palletsprojects.com/en/3.1.x/templates/#filters
+form control input felder       https://getbootstrap.com/docs/5.3/forms/form-control/
+flexbox d-flex align-items-end  https://getbootstrap.com/docs/5.3/utilities/flex/
+icons bi-x-circle               https://icons.getbootstrap.com/icons/x-circle/
+url_for jinja+flask             https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
+-->
+
 <!--die cards container-->
 <!--schleife damit keine fehlermeldung kommt falls es keinen solchen trip gibt sondern meldung-->
 {% if destination %}
