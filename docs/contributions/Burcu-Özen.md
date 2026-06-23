@@ -48,9 +48,9 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | \# | My contribution | Why I am proud of it | Which challenge I overcame |
 | :-- | :-- | :-- | :-- |
-| 1 | [Describe your individual contribution] |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
+| 1 | Vollständigen Authentifizierungsflow implemeniert (Registrierung, Login und Logout) | Ich bin stolz darauf, einen funktionierenden und sicheren Register/Login-Bereich umgesetzt zu haben, weil die Authentifizierung der wichtigste Bestandteil der Webapp ist. | Es erforderte mich eine genaue Einarbeitung, um Sessions, Passwort-Hashing und das Zusammenspiel von Flask-Login, SQLAlchemy und dem User-Modell zu verstehen. |
+| 2 | Implementierung des Profilsystems mit Anzeige und Bearbeitung der Benutzerdaten | Das Profilsystem gibt jedem Nutzer eine persönliche Identität auf der Plattform und schafft Vertrauen zwischen Hosts und Joinern. Ohne Profil wäre die Plattform anonym und das Matching zwischen Host und Joiner weniger vertrauenswürdig. | Formulardaten korrekt zu verarbeiten und Änderungen zuverlässig in der Datenbank zu speichern war herausfordernd. Außerdem musste ich verstehen wie current_user aus Flask-Login direkt im Template und in der Route verfügbar ist, ohne den User extra aus der Datenbank abzufragen. |
+| 3 | Entwicklung des Dashboard-Systems für Hosts und Joiner | Ich bin stolz darauf, dass Benutzer übersichtliche Dashboards mit ihren eigenen Reisen bzw. Bewerbungen erhalten. | Es war herausfordernd, benutzerspezifische Daten mit SQLAlchemy abzufragen und die Reisen anhand des Datums in offene, aktive und vergangene Trips einzuteilen. Ich musste auch herausfinden wie Daten abhängig vom aktuell eingeloggten Benutzer gefiltert und an die Templates übergeben werden.|
 
 ## Design Decisions that I led
 
