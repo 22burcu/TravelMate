@@ -62,12 +62,10 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 ## Contributions
 
 | Contribution | Proof, e.g., git commits | Sources used |
-| :-- | :-- | :-- |
-| [Design Challenge research] | [Research traces](../product-discovery/01-design-challenge.md#raw-materia) | See left |
-| [Refactor to use Flask Blueprints] | [Commit 1](https://github.com/hwrberlin/fswd/commit/d816e4), [Commit 2](https://github.com/hwrberlin/fswd/commit/75a6c1) | [Flask Documentation](https://flask.palletsprojects.com/en/stable/blueprints/#the-concept-of-blueprints) |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+|---|---|---|
+| Zentrale Geschäftsregeln (max. 3 offene Trips, keine zeitliche Überschneidung) in eigenem Modul `business_rules.py` | [Commit e344775](https://github.com/22burcu/TravelMate/commit/e344775), [Commit c3229d0](https://github.com/22burcu/TravelMate/commit/c3229d0) | [Flask-SQLAlchemy: Modifying and Querying Data](https://flask-sqlalchemy.readthedocs.io/en/stable/queries/), [Python datetime (date.today)](https://docs.python.org/3/library/datetime.html) |
+| Trip-Erstellung als Host: Formular, Datums-Umwandlung, Validierung und Speicherung | [Commit 2d59118](https://github.com/22burcu/TravelMate/commit/2d59118), [Commit 441f1ad](https://github.com/22burcu/TravelMate/commit/441f1ad) | [Python datetime: strptime](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime), [Programiz: Python strptime](https://www.programiz.com/python-programming/datetime/strptime) |
+| Headless JSON-API-Endpoint `GET /api/trips` | [Commit 79d7310](https://github.com/22burcu/TravelMate/commit/79d7310) | [Flask: JavaScript, fetch, and JSON](https://flask.palletsprojects.com/en/stable/patterns/javascript/), [Flask API: jsonify](https://flask.palletsprojects.com/en/stable/api/) |
 
 ---
 
