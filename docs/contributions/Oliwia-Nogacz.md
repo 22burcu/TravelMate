@@ -49,9 +49,9 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | \# | My contribution | Why I am proud of it | Which challenge I overcame |
 | :-- | :-- | :-- | :-- |
-| 1 | Trips-Suche + Filterfunktion (trips.py + trips.html); Suchleiste nach Reiseziel mit ilike; filter nach Kontinent, Reiseziel, Budget, Datum|  | Herausforderungen: SQLAlchemy JOIN zwischen Trip und Location Tabelle|
-| 2 |  |  |  |
-| 3 |  |  |  |
+| 1 | Trips-Suche + Filterfunktion + Detailseite (trips.py + trips.html trip_details.html); Suchleiste nach Reiseziel mit ilike(damit Groß und Kleinschreibung egal ist); filter nach Kontinent, Reiseart, Reiseziel, Budget, Datum; Dynamische Query bei der Filter nur angewendet werden wenn sie auch ausgefüllt werden; SQLAlchemy Join zwischen Trip und Location Tabelle | Backend(python/SQLAlchemy) und Frontend(Bootstrap/Jinja2) zusammen angewendet. Der Join war technisch sehr anspruchvoll und Zeitaufwendig aber ich habe nicht aufgegeben. Außerdem habe ich Bugs wie fehlende Kommas oder Filter-Verbindungen selbst gefunden. Das ist mir früher nicht gelungen. | Herausforderungen: SQLAlchemy JOIN zwischen Trip und Location Tabelle; Arbeit am Frontend und Backend gleichzeitig; verschiedene Codierungsansätze gleichzeitig.|
+| 2 | Bewertungssystem (apply.html); neue Blueprint-Route registriert in __init__.py; apply.html also Bewerbungsformular mit Nachricht + Budget erstellt | Kleinen bug geffixt der sehr leicht zu übersehen war, __name__ statt _name_, in einer Stresssituation kurz vor der Abgabe | Herausforderungen: Blueprint registrieren und debuggen |
+| 3 | Landing Page Designänderung (index.html + base.html); Fullscreen Hintergrund von Unsplash; Zentrierte Suchleiste direkt auf dem Bild; Zweispaltige Infosektion dadrunter (das wird noch bearbeitet + Kontaktformular) | Strukturelle erweiterung von der base.html ohne andere Seiten kaputt zu machen.| Herausforderungen: Formatierung! zb: der Block fullwidth der außerhalb des Containers war und der Sticky Footer der nicht da geklebt hat wo er sollte.|
 
 ## Design Decisions that I led
 
