@@ -55,8 +55,8 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 ## Design Decisions that I led
 
-1. [DD #00](../design-decisions/dd-00.md)
-2. [DD #01](../design-decisions/dd-01.md)
+1. [DD #02](../design-decisions/dd-02.md) 
+2. [DD #03](../design-decisions/dd-03.md) 
 
 ---
 
