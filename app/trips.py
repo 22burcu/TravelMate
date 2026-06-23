@@ -109,7 +109,7 @@ def trips_list():
     
     return render_template ("trips.html", 
             trips=trips, 
-            destination=destination
+            destination=destination,
             continent=continent,
             travel_style_id=travel_style_id,
             budget_min=budget_min,
