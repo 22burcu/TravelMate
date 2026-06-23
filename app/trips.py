@@ -133,8 +133,16 @@ string zu datum umwandeln                 https://docs.python.org/3/library/date
 
 
 
+@trips_bp.route("/trips/<int:trip_id>")
+def trip_detail(trip_id):
+    # trip anhand der id aus der db holen, 404 wenn nicht gefunden
+    trip = Trip.query.get_or_404(trip_id)
+    return render_template("trip_detail.html", trip=trip)
 
-
+""" quellen
+url parameter <int:trip_id>     https://flask.palletsprojects.com/en/3.0.x/quickstart/#variable-rules
+trips holen oder error          https://flask-sqlalchemy.palletsprojects.com/en/stable/queries/#get-or-404
+"""
 
 
 
