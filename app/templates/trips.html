@@ -150,7 +150,7 @@ url_for jinja+flask             https://flask.palletsprojects.com/en/3.0.x/api/#
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-dark btn-sm w-100">
+                            <a href="{{ url_for('trips.trip_detail', trip_id=trip.t_id) }}" class="btn btn-dark btn-sm w-100">
                                 Details ansehen
                             </a>
                         </div>
@@ -161,15 +161,16 @@ url_for jinja+flask             https://flask.palletsprojects.com/en/3.0.x/api/#
     </div>
 
 <!-- quellen
-schleife    https://jinja.palletsprojects.com/en/stable/templates/
-card        https://getbootstrap.com/docs/5.3/components/card/
-grid        https://getbootstrap.com/docs/5.3/layout/grid/   col-md-4 weil bootstrap 12 spalten hat, 12:4=3 karten pro zeile
-icons       https://icons.getbootstrap.com/
-farben      https://getbootstrap.com/docs/5.3/utilities/colors/
-textgröße   https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/small
-button btn  https://getbootstrap.com/docs/5.3/components/buttons/
-zb trip.continent https://jinja.palletsprojects.com/en/stable/templates/ variablen aus models.py ziehen
-container   https://getbootstrap.com/docs/5.3/layout/containers/
+schleife            https://jinja.palletsprojects.com/en/stable/templates/
+card                https://getbootstrap.com/docs/5.3/components/card/
+grid                https://getbootstrap.com/docs/5.3/layout/grid/   col-md-4 weil bootstrap 12 spalten hat, 12:4=3 karten pro zeile
+icons               https://icons.getbootstrap.com/
+farben              https://getbootstrap.com/docs/5.3/utilities/colors/
+textgröße           https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/small
+button btn          https://getbootstrap.com/docs/5.3/components/buttons/
+zb trip.continent   https://jinja.palletsprojects.com/en/stable/templates/ variablen aus models.py ziehen
+container           https://getbootstrap.com/docs/5.3/layout/containers/
+url for jinja 2     https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
 
 -->
 
