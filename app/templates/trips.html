@@ -108,13 +108,14 @@ url_for jinja+flask             https://flask.palletsprojects.com/en/3.0.x/api/#
 <!--die cards container-->
 <!--schleife damit keine fehlermeldung kommt falls es keinen solchen trip gibt sondern meldung-->
 {% if destination %}
-    <h4 class="mb-4">Suchergebnisse für: <strong>{{ destination }}</strong></h4>
+    <h4 class="mb-5 mt-5 ms-5">Suchergebnisse für: <strong>{{ destination }}</strong></h4>
 {% else %}
-    <h4 class="mb-4">Alle Trips</h4>
+    <h4 class="mb-5 mt-5 ms-5">Alle Trips</h4>
 {% endif %}
 
 {% if trips %}
-        <div class="row">
+    <div class="container">
+        <div class="row justify-content-center">
             {% for trip in trips %}
                 <div class="col-md-4 mb-4">  <!--col-md-4 weil bootstrap 12 spalten hat, 12:4=3 karten pro zeile-->
                     <div class="card shadow-sm h-100">
@@ -157,6 +158,7 @@ url_for jinja+flask             https://flask.palletsprojects.com/en/3.0.x/api/#
                 </div>
             {% endfor %}
         </div>
+    </div>
 
 <!-- quellen
 schleife    https://jinja.palletsprojects.com/en/stable/templates/
@@ -167,24 +169,29 @@ farben      https://getbootstrap.com/docs/5.3/utilities/colors/
 textgröße   https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/small
 button btn  https://getbootstrap.com/docs/5.3/components/buttons/
 zb trip.continent https://jinja.palletsprojects.com/en/stable/templates/ variablen aus models.py ziehen
+container   https://getbootstrap.com/docs/5.3/layout/containers/
+
 -->
 
 <!-- keine trips meldung -->
 {% else %}
-    <div class="alert alert-info">
-        <i class="bi bi-info-circle"></i> 
-        {% if destination %}
-            Keine Trips gefunden für "<strong>{{ destination }}</strong>".
-        {% else %}
-            Noch keine Trips vorhanden.
-        {% endif %}
+    <div class="container">
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> 
+            {% if destination %}
+                Keine Trips gefunden für "<strong>{{ destination }}</strong>".
+            {% else %}
+                Noch keine Trips vorhanden.
+            {% endif %}
+        </div>
     </div>
 {% endif %}
+
 <!-- quellen
 schleife    https://jinja.palletsprojects.com/en/stable/templates/#if
 alert       https://getbootstrap.com/docs/5.3/components/alerts/
 icons       https://icons.getbootstrap.com/icons/info-circle/
 text dick   https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
-
+container   https://getbootstrap.com/docs/5.3/layout/containers/
 -->
 {% endblock %}
