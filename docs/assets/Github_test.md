@@ -1,0 +1,1 @@
+Herr Eck, diese datei dient einzig allein dazu um zu überprfen ob unsere fehler die wir bezüglich github commits hatten, wo unsere design desicion nicht richitg ankam.

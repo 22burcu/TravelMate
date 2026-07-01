@@ -1,0 +1,11 @@
+Im Rahmen der Design-Challenge haben wir verschiedene Ansätze zur Gestaltung des Prozesses „Reise erstellen“ untersucht. 
+Das dargestellte Flowchart ["/Users/berksmac/Documents/Fullstack/TravelMate/docs/product-discovery/material/01-dc/Reise Erstellen.png] dokumentiert unseren Denkprozess und zeigt die einzelnen Schritte, die ein Nutzer beim Anlegen einer neuen Reise durchläuft. Dabei wurden unterschiedliche Szenarien und mögliche Probleme berücksichtigt, beispielsweise die Anmeldung des Nutzers, die Validierung von Reisezeitraum und Budget sowie die Behandlung von Terminüberschneidungen mit bereits vorhandenen Reisen.
+
+Während der Konzeptionsphase haben wir mehrere „How might we“-Fragen diskutiert, unter anderem:
+
+How might we den Prozess zur Reiseerstellung möglichst einfach und intuitiv gestalten?
+How might we Nutzern helfen, fehlerhafte Eingaben frühzeitig zu erkennen?
+How might we bestehende Reisen sinnvoll in die Planung neuer Reisen integrieren?
+How might we Doppelbuchungen oder zeitliche Überschneidungen vermeiden?
+
+Das Flowchart entstand als Ergebnis dieser Überlegungen und half uns dabei, den späteren Funktionsumfang der Anwendung zu definieren. Einige Ideen wurden verworfen oder vereinfacht, um den Prozess für die Nutzer verständlicher und effizienter zu gestalten. Dadurch konnten wir die wichtigsten Anforderungen identifizieren und in ein erstes Nutzungskonzept überführen.

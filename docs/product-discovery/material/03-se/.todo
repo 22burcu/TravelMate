@@ -1,0 +1,13 @@
+Im Rahmen der Lösungsfindung haben wir verschiedene Ansätze zur Umsetzung unserer Reiseplanungs-Anwendung entwickelt und bewertet. Als Grundlage dienten die erstellten Target-Scope-Skizzen, die die wichtigsten Funktionen und den geplanten Umfang des Projekts visualisieren.
+
+Zusätzlich haben wir zu Beginn des Projekts eine Roadmap erstellt, um die Entwicklung zeitlich zu strukturieren und die einzelnen Arbeitspakete besser planen zu können. Die Roadmap half uns dabei, Prioritäten festzulegen, den Projektfortschritt zu überwachen und sicherzustellen, dass die wichtigsten Funktionen innerhalb des verfügbaren Zeitrahmens umgesetzt werden konnten.
+
+Zu den zentralen Lösungsansätzen gehörten:
+
+* Erstellung und Verwaltung von Reisen innerhalb einer Gruppe
+* Gemeinsame Planung von Reisezielen, Zeiträumen und Budgets
+* Überprüfung von Datumsüberschneidungen zwischen Reisen
+* Möglichkeit zur Zusammenführung ähnlicher oder überschneidender Reisen
+* Strukturierte Verwaltung von Reisegruppen und Teilnehmern
+
+Die Target-Scope-Skizzen dienten dabei als visuelle Orientierung für den Funktionsumfang der Anwendung, während die Roadmap die organisatorische Grundlage für die Umsetzung bildete. Durch diese Kombination konnten wir sowohl die fachlichen Anforderungen als auch die zeitliche Planung des Projekts effektiv steuern.
