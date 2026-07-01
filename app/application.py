@@ -38,6 +38,11 @@ def apply(trip_id):
 def accept_application(app_id):
     #Zuerst holen wir uns eine Bewerbung, sollte keine vorhanden sein kriegen wir eine Fehlermeldung
     application = Application.query.get_or_404(app_id)
+
+    # Zweite Prüfung: Nur der Ersteller der Reise/Trip darf entscheiden ( Owner/Host check)
+    if application.trip.host_u_id != current_user.u_id:
+        flash("Du darfst nur Bewerbngen für deine eigenen Reisen bearbeiten", "danger")
+        return redirect(url_for("dashboard.host_dashboard"))
     
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
