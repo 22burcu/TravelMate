@@ -44,6 +44,12 @@ def accept_application(app_id):
         flash("Du darfst nur Bewerbngen für deine eigenen Reisen bearbeiten", "danger")
         return redirect(url_for("dashboard.host_dashboard"))
     
+    accepted_count = Application.query.filter_by(
+        trip_t_id=application.trip_t_id, status="accepted"
+    ).count()
+    if accepted_count >= application.trip.max_participants:
+        flash("Diese Reise ist bereits voll belegt", "warning")
+        returnredirect(url_for("dashboard.host_dashboard"))
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
 # @login_required                 https://flask-login.readthedocs.io/en/latest/#flask_login.login_required
