@@ -33,6 +33,12 @@ def apply(trip_id):
 
     return render_template("apply.html", trip=trip)
 
+@applications_bp.route("/applications/<int:app_id>/accept", methods=["POST"])
+@login_required
+def accept_application(app_id):
+    #Zuerst holen wir uns eine Bewerbung, sollte keine vorhanden sein kriegen wir eine Fehlermeldung
+    application = Application.query.get_or_404(app_id)
+    
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
 # @login_required                 https://flask-login.readthedocs.io/en/latest/#flask_login.login_required
