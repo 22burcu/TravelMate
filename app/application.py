@@ -67,6 +67,11 @@ def accept_application(app_id):
         if application.trip.host_u_id != current_user.u_id:
             flash("Du darfst nur Bewerbungen für deine selbst erstellten Reisen bearbeiten!")
             return redirect(url_for("dashboard.host_dashboard"))
+        
+        application.status = "rejected"
+        db.session.commit()
+        flash("Bewerbung abgelehnt.", "info")
+        return redirect(url_for("dashboard.host_dashboard"))
 
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
