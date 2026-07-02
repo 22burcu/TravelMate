@@ -134,12 +134,13 @@
                             <h5 class="card-title">{{ application.joiner.first_name }} {{ application.joiner.last_name }}</h5>
                             <p class="card-text">
                                 <strong>Reise:</strong> {{ application.trip.destination.city }}<br>
-                                <strong>Status:</strong> {{ application.status }}<br>
                                 <strong>Budget:</strong> €{{ application.budget_min }} - €{{ application.budget_max }}<br>
                             {% if application.message %}
                                 <strong>Nachricht:</strong> {{ application.message }}
                             {% endif %}
                             </p>
+                            {% if application.status == "pending" %}
+
                      </div>
                  </div>
              </div>
