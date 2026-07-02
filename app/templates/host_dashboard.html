@@ -139,19 +139,30 @@
                                 <strong>Nachricht:</strong> {{ application.message }}
                             {% endif %}
                             </p>
+
                             {% if application.status == "pending" %}
-                                </div class="d-flex gap-2">
+                                <div class="d-flex gap-2">
                                     <form method="POST" action="{{ url_for('applications.accept_application', app_id=application.a_id) }}">
-                                        <button type=""submit" class="btn btn-success btn-sm">Annehmen</button>
-                     </div>
-                 </div>
-             </div>
-         {% endfor %}
-     </div>
-     {% else %}
+                                        <button type="submit" class="btn btn-success btn-sm">Annehmen</button>
+                                    </form>
+                                    <form method="POST" action="{{ url_for('applications.reject_application', app_id=application.a_id) }}">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Ablehnen</button>
+                                    </form>
+                                </div>
+                            {% elif application.status == "accepted" %}
+                                <span class="badge bg-success">Angenommen</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Abgelehnt</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
         <div class="alert alert-info">
-             Keine eingegangenen Bewerbungen.
-     </div>
+            Keine eingegangenen Bewerbungen.
+        </div>
     {% endif %}
 
 </div>
