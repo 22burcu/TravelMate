@@ -62,7 +62,11 @@ def accept_application(app_id):
     @login_required
     def reject_application(app_id):
         application = Application.query.get_or_404(app_id)
-        
+
+        #Prüfen, ob der Host die Reise bearbeiten möchte
+        if application.trip.host_u_id != current_user.u_id:
+            flash("Du darfst nur Bewerbungen für deine selbst erstellten Reisen bearbeiten!")
+            return redirect(url_for("dashboard.host_dashboard"))
 
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
