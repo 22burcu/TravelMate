@@ -140,8 +140,9 @@
                             {% endif %}
                             </p>
                             {% if application.status == "pending" %}
-                        </div class="d-flex gap-2">
-
+                                </div class="d-flex gap-2">
+                                    <form method="POST" action="{{ url_for('applications.accept_application', app_id=application.a_id) }}">
+                                        <button type=""submit" class="btn btn-success btn-sm">Annehmen</button>
                      </div>
                  </div>
              </div>
