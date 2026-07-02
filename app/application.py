@@ -58,6 +58,11 @@ def accept_application(app_id):
     flash("Bewerbung angenommen", "success")
     return redirect(url_for("dashboard.host_dashboard"))
 
+    @applications_bp.route("/applications/<int:app_id>/reject", methods=["POST"])
+    @login_required
+    def reject_application(app_id):
+        application = Application.query.get_or_404(app_id)
+        
 
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
