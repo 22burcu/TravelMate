@@ -51,6 +51,12 @@ def accept_application(app_id):
     if accepted_count >= application.trip.max_participants:
         flash("Diese Reise ist bereits voll belegt", "warning")
         return redirect(url_for("dashboard.host_dashboard"))
+    
+    # Abschließend wird der Status gesetzt und gespeichert
+    application.status = "accepted"
+    db.session.commit()
+    flash("Bewerbung angenommen", "success")
+    return redirect(url_for("dashboard.host_dashboard"))
 
 
 # genutzte Quellen
