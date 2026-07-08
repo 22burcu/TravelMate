@@ -39,7 +39,7 @@ def register():
 
         try:
             birth_date = datetime.strptime(birth_date_str, "%Y-%m-%d").date()
-            hashed_pw = generate_password_hash(password)
+            hashed_pw = generate_password_hash(password, method="pbkdf2:sha256")
 
             new_user = User(
                 email=email,
