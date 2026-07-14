@@ -54,7 +54,7 @@
                             {% endif %}
                         </td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            <a href="{{ url_for('trips.trip_detail', trip_id=app.trip.t_id) }}" class="btn btn-sm btn-primary">Details</a>
                         </td>
                     </tr>
                 {% endfor %}
