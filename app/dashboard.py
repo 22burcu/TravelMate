@@ -9,7 +9,7 @@ dashboard_bp = Blueprint("dashboard", __name__)
 
 def host_dashboard():
         today = date.today()
-        open_trips = Trip.query.filter(
+        open_trips = Trip.query.filter(             #Quelle zu: https://docs.sqlalchemy.org/en/20/orm/queryguide/
             Trip.host_u_id == current_user.u_id,
             Trip.start_date > today
         ).all()  
