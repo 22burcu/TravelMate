@@ -58,20 +58,20 @@ def accept_application(app_id):
     flash("Bewerbung angenommen", "success")
     return redirect(url_for("dashboard.host_dashboard"))
 
-    @applications_bp.route("/applications/<int:app_id>/reject", methods=["POST"])
-    @login_required
-    def reject_application(app_id):
-        application = Application.query.get_or_404(app_id)
+@applications_bp.route("/applications/<int:app_id>/reject", methods=["POST"])
+@login_required
+def reject_application(app_id):
+    application = Application.query.get_or_404(app_id)
 
-        #Prüfen, ob der Host die Reise bearbeiten möchte
-        if application.trip.host_u_id != current_user.u_id:
-            flash("Du darfst nur Bewerbungen für deine selbst erstellten Reisen bearbeiten!")
-            return redirect(url_for("dashboard.host_dashboard"))
-        
-        application.status = "rejected"
-        db.session.commit()
-        flash("Bewerbung abgelehnt.", "info")
+    #Prüfen, ob der Host die Reise bearbeiten möchte
+    if application.trip.host_u_id != current_user.u_id:
+        flash("Du darfst nur Bewerbungen für deine selbst erstellten Reisen bearbeiten!")
         return redirect(url_for("dashboard.host_dashboard"))
+        
+    application.status = "rejected"
+    db.session.commit()
+    flash("Bewerbung abgelehnt.", "info")
+    return redirect(url_for("dashboard.host_dashboard"))
 
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
