@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Verwendet die Grundstruktur aus base.html.-->
 
-{% block content %}
+{% block content %} <!-- Beginnt den content-Block, der in base.html eingefügt wird. -->
 
 <div class="container mt-5">
     
@@ -9,16 +9,18 @@
         <a href="{{ url_for('dashboard.host_dashboard') }}" 
            class="btn btn-outline-dark">
             Host
-        </a>
+        </a>  <!-- Link zum Host-Dashboard -->
+
         <a href="{{ url_for('dashboard.joiner_dashboard') }}" 
            class="btn btn-dark">
             Joiner
-        </a>
+        </a> <!-- Link zum Joiner-Dashboard -->
     </div>
 
     <h1>Meine Bewerbungen (Joiner)</h1>
     <hr>
     
+    <!-- Prüft, ob Bewerbungen vorhanden sind -->
     {% if applications %}
         <table class="table table-hover">
             <thead class="table-dark">
@@ -33,17 +35,30 @@
                 </tr>
             </thead>
             <tbody>
+
+              <!-- Durchläuft alle Bewerbungen, die von Flask an das Template übergeben wurden -->
                 {% for app in applications %}
                     <tr>
+                     <!-- Reiseziel des Trips -->
                         <td><strong>{{ app.trip.location }}</strong></td>
+
+                        <!-- Vor- und Nachname des Hosts -->
                         <td>{{ app.trip.host.first_name }} {{ app.trip.host.last_name }}</td>
+
+                        <!-- Name des Reisestils -->
                         <td>{{ app.trip.travel_style.name }}</td>
+
+                         <!-- Start- und Enddatum der Reise -->
                         <td>
                             <small>{{ app.trip.start_date }} - {{ app.trip.end_date }}</small>
                         </td>
+
+                        <!-- Budgetbereich der Reise -->
                         <td>
                             <small>€{{ app.trip.budget_min }} - €{{ app.trip.budget_max }}</small>
                         </td>
+
+                         <!-- Zeigt den Status der Bewerbung an -->
                         <td>
                             {% if app.status == 'pending' %}
                                 <span class="badge bg-warning">Ausstehend</span>
@@ -53,6 +68,8 @@
                                 <span class="badge bg-danger">Abgelehnt</span>
                             {% endif %}
                         </td>
+
+                         <!-- Link zur Detailansicht der Reise -->
                         <td>
                             <a href="{{ url_for('trips.trip_detail', trip_id=app.trip.t_id) }}" class="btn btn-sm btn-primary">Details</a>
                         </td>
@@ -61,6 +78,7 @@
             </tbody>
         </table>
     {% else %}
+     <!-- Wird angezeigt, wenn der Nutzer keine Bewerbungen hat -->
         <div class="alert alert-info">
             Du hast dich noch bei keiner Reise beworben.
         </div>
@@ -68,4 +86,4 @@
 
 </div>
 
-{% endblock %}
+{% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->

@@ -1,46 +1,70 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Verwendet die Grundstruktur aus base.html.-->
 
-{% block content %}
+{% block content %} <!-- Beginnt den content-Block, der in base.html eingefügt wird. -->
 <div class="container mt-5">
 
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <!-- Header -->
+            <!-- Header mit Zurück-Button zur Profilansicht -->
             <div class="d-flex align-items-center mb-4">
+
+             <!-- Link zurück zur Profilseite -->
                 <a href="{{ url_for('profile.profile') }}" class="btn btn-outline-secondary btn-sm me-3">
                     ← Zurück
                 </a>
                 <h4 class="mb-0 fw-bold">Profil bearbeiten</h4>
             </div>
 
+            <!-- Karte für das Bearbeitungsformular -->
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
-
+            <!-- Formular zum Bearbeiten des Profils -->
                     <form method="POST">
+                    <!-- Beim Absenden werden die Daten per POST an die aktuelle Route gesendet -->   
+
 
                         <!-- Bio -->
                         <div class="mb-4">
                             <label for="bio" class="form-label fw-bold">Bio</label>
+
+                              <!-- Textfeld für die persönliche Beschreibung -->
                             <textarea class="form-control" id="bio" name="bio" rows="4"
                                 placeholder="Erzähl etwas über dich...">{{ user.bio or '' }}</textarea>
+                         <!-- Zeigt die aktuell gespeicherte Bio an.
+                                 Falls keine Bio vorhanden ist, wird ein leerer String angezeigt. -->
+
                             <div class="form-text text-muted">Wird auf deinem Profil angezeigt.</div>
                         </div>
 
                         <!-- Kontakt-Info -->
                         <div class="mb-4">
                             <label for="contact_info" class="form-label fw-bold">Kontakt-Info</label>
-                            <input type="text" class="form-control" id="contact_info" name="contact_info"
+
+                             <!-- Eingabefeld für Kontaktinformationen -->
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="contact_info" 
+                                name="contact_info"
                                 placeholder="z.B. Instagram, Telegram, WhatsApp..."
                                 value="{{ user.contact_info or '' }}">
+                                 <!-- zeigt die aktuell gespeicherte Kontakt-Info an.
+                                      Falls keine Kontakt-Info vorhanden ist, wird ein leerer String angezeigt. -->
+
                             <div class="form-text text-muted">So können dich Mitreisende erreichen.</div>
                         </div>
 
                         <!-- Buttons -->
                         <div class="d-grid gap-2">
+
+                         <!-- Submit-Button:
+                                 Sendet das Formular ab und löst den POST-Request aus -->
                             <button type="submit" class="btn btn-primary">
                                 Speichern
                             </button>
+
+                             <!-- Bricht die Bearbeitung ab und kehrt zur Profilansicht zurück -->
                             <a href="{{ url_for('profile.profile') }}" class="btn btn-outline-secondary">
                                 Abbrechen
                             </a>
@@ -55,4 +79,4 @@
     </div>
 
 </div>
-{% endblock %}
+{% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->

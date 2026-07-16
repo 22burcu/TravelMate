@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Verwendet die Grundstruktur aus base.html.-->
 
-{% block content %}
+{% block content %} <!-- Beginnt den content-Block, der in base.html eingefügt wird. -->
 
 <div class="row justify-content-center">
     <div class="col-md-6 col-lg-5">
 
+ <!-- Registrierungs-Karte -->
         <div class="card shadow-sm mt-4">
 
             <div class="card-body p-4">
@@ -13,25 +14,39 @@
                     Konto erstellen
                 </h2>
 
+                <!-- Zeigt Fehlermeldungen an, die von Flask an das Template übergeben wurden -->
                 {% if error %}
                     <div class="alert alert-danger" role="alert">
                         {{ error }}
                     </div>
                 {% endif %}
 
+                <!-- Registrierungsformular -->
                 <form method="POST" action="{{ url_for('auth.register') }}">
+                  <!-- Beim Absenden werden die Daten per POST an die register-Route gesendet -->
 
                     <div class="row">
+
+                    <!-- Vorname -->
                         <div class="col-md-6 mb-3">
+
                             <label class="form-label">Vorname</label>
+
                             <input
                                 type="text"
                                 class="form-control"
                                 name="first_name"
                                 value="{{ request.form.get('first_name', '') }}"
                                 required>
+
+                                <!-- name="first_name" ermöglicht den Zugriff über
+                                 request.form.get("first_name") in Flask -->
+
+                            <!-- Falls ein Fehler auftritt, bleibt die bereits
+                                 eingegebene Eingabe im Formular erhalten -->
                         </div>
 
+                        <!-- Nachname -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Nachname</label>
                             <input
@@ -40,7 +55,11 @@
                                 name="last_name"
                                 value="{{ request.form.get('last_name', '') }}"
                                 required>
+
+                                 <!-- Zugriff in Flask über
+                                 request.form.get("last_name") -->
                         </div>
+                        
                     </div>
 
                     <div class="mb-3">
@@ -51,8 +70,13 @@
                             name="birth_date"
                             value="{{ request.form.get('birth_date', '') }}"
                             required>
+
+                               <!-- Zugriff in Flask über
+                             request.form.get("birth_date") -->
+
                     </div>
 
+                    <!-- E-Mail -->
                     <div class="mb-3">
                         <label class="form-label">E-Mail</label>
                         <input
@@ -61,8 +85,12 @@
                             name="email"
                             value="{{ request.form.get('email', '') }}"
                             required>
+
+                            <!-- Zugriff in Flask über
+                             request.form.get("email") -->
                     </div>
 
+                    <!-- Passwort -->
                     <div class="mb-3">
                         <label class="form-label">Passwort</label>
                         <input
@@ -70,8 +98,12 @@
                             class="form-control"
                             name="password"
                             required>
+
+                            <!-- Zugriff in Flask über
+                             request.form.get("password") -->
                     </div>
 
+                    <!-- Passwort wiederholen -->
                     <div class="mb-3">
                         <label class="form-label">Passwort wiederholen</label>
                         <input
@@ -79,9 +111,15 @@
                             class="form-control"
                             name="confirm_password"
                             required>
+
+                            <!-- Zugriff in Flask über
+                             request.form.get("confirm_password") -->
                     </div>
 
                     <div class="d-grid">
+
+                     <!-- Submit-Button:
+                             Sendet das Formular an die Registrierungs-Route -->
                         <button type="submit" class="btn btn-dark">
                             Konto erstellen
                         </button>
@@ -94,6 +132,8 @@
             <div class="card-footer text-center py-3">
                 <small class="text-muted">
                     Bereits registriert?
+
+                       <!-- Link zur Login-Seite -->
                     <a href="{{ url_for('auth.login') }}">
                         Hier einloggen
                     </a>
@@ -105,4 +145,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->

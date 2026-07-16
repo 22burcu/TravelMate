@@ -1,19 +1,25 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Verwendet die Grundstruktur aus base.html.-->
 
-{% block content %}
+{% block content %} <!-- Beginnt den content-Block, der in base.html eingefügt wird. -->
 
 <div class="container mt-5">
     
     <!-- BUTTONS (Tabs) -->
     <div class="mb-4">
+
+     <!-- Link zum Host-Dashboard -->
         <a href="{{ url_for('dashboard.host_dashboard') }}" 
            class="btn btn-dark">
             Host
         </a>
+
+        <!-- Link zum Joiner-Dashboard -->
         <a href="{{ url_for('dashboard.joiner_dashboard') }}" 
            class="btn btn-outline-dark">
             Joiner
         </a>
+
+        <!-- Link zum Erstellen eines neuen Trips -->
          <a href="{{ url_for('trips.create_trip') }}" 
            class="btn btn-outline-primary">
             + Trip erstellen
@@ -26,8 +32,11 @@
     <!-- OFFENE REISEN -->
     <h3 class="mt-5">Offene Reisen (noch nicht gestartet)</h3>
     
+    <!-- Prüft, ob offene Reisen vorhanden sind -->
     {% if open_trips %}
         <div class="row">
+        
+         <!-- Durchläuft alle offenen Reisen des aktuell eingeloggten Hosts -->
             {% for trip in open_trips %}
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card border-info">
@@ -60,21 +69,35 @@
     <!-- AKTIVE REISEN -->
     <h3 class="mt-5">Aktive Reisen (gerade laufend)</h3>
     
+    <!-- Prüft, ob aktuell laufende Reisen vorhanden sind -->
     {% if active_trips %}
         <div class="row">
+
+        <!-- Durchläuft alle aktiven Reisen des Hosts -->
             {% for trip in active_trips %}
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card border-success">
                         <div class="card-body">
+                            <h5 class="card-title
+            {% for trip in active_trips %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card border-success">
+                        <div class="card-body">
+
+                        <!-- Zeigt Informationen zur Reise an -->
                             <h5 class="card-title">{{ trip.location }}</h5>
                             <p class="card-text">
                                 <strong>{{ trip.continent }}</strong><br>
+
+                                <!-- Zugriff auf die TravelStyle-Relationship -->
                                 <small class="text-muted">{{ trip.travel_style.name }}</small><br>
                                 <br>
                                 {{ trip.start_date }} - {{ trip.end_date }}<br>
                                 Max: {{ trip.max_participants }} Personen<br>
                                 €{{ trip.budget_min }} - €{{ trip.budget_max }}
                             </p>
+
+                            <!-- Zeigt die Beschreibung der Reise an, falls vorhanden -->
                             {% if trip.description %}
                                 <p class="card-text"><small>{{ trip.description }}</small></p>
                             {% endif %}
@@ -94,8 +117,11 @@
     <!-- VERGANGENE REISEN -->
     <h3 class="mt-5">Vergangene Reisen (abgeschlossen)</h3>
     
+     <!-- Prüft, ob vergangene Reisen vorhanden sind -->
     {% if past_trips %}
-        <div class="row">
+        <div class="row">  
+        
+         <!-- Durchläuft alle vergangenen Reisen -->
             {% for trip in past_trips %}
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card border-secondary">
@@ -129,14 +155,21 @@
     <!-- EINGEGANGENE BEWERBUNGEN -->
     <h3 class="mt-5">Eingegangene Bewerbungen</h3>
 
+ <!-- Prüft, ob Bewerbungen für Reisen des aktuellen Hosts vorhanden sind -->
     {% if incoming_applications %}
-        <div class="row">
+        <div class="row">  
+        
+        <!-- Durchläuft alle eingegangenen Bewerbungen -->
             {% for application in incoming_applications %}
                 <div class="col-md-6 col-lg-4 mb-4">
                    <div class="card border-warning">
-                        <div class="card-body">
+                        <div class="card-body"> 
+                        
+                        <!-- Zugriff auf den Bewerber über die Joiner-Relationship -->
                             <h5 class="card-title">{{ application.joiner.first_name }} {{ application.joiner.last_name }}</h5>
-                            <p class="card-text">
+                            <p class="card-text"> 
+                            
+                            <!-- Zugriff auf die zugehörige Reise über die Trip-Relationship -->
                                 <strong>Reise:</strong> {{ application.trip.destination.city }}<br>
                                 <strong>Budget:</strong> €{{ application.budget_min }} - €{{ application.budget_max }}<br>
                             {% if application.message %}
@@ -144,11 +177,16 @@
                             {% endif %}
                             </p>
 
+                            <!-- Prüft den Status der Bewerbung -->
                             {% if application.status == "pending" %}
-                                <div class="d-flex gap-2">
+                                <div class="d-flex gap-2"> 
+                                
+                                <!-- Sendet eine POST-Anfrage zum Annehmen der Bewerbung -->
                                     <form method="POST" action="{{ url_for('applications.accept_application', app_id=application.a_id) }}">
                                         <button type="submit" class="btn btn-success btn-sm">Annehmen</button>
                                     </form>
+
+                                <!-- Sendet eine POST-Anfrage zum Ablehnen der Bewerbung -->
                                     <form method="POST" action="{{ url_for('applications.reject_application', app_id=application.a_id) }}">
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Ablehnen</button>
                                     </form>
@@ -171,4 +209,4 @@
 
 </div>
 
-{% endblock %}
+{% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->

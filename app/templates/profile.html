@@ -1,23 +1,31 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!-- Verwendet die Grundstruktur aus base.html.-->
 
-{% block content %}
+{% block content %} <!-- Beginnt den content-Block, der in base.html eingefügt wird. -->
 
 <div class="container mt-5">
 
     <div class="row justify-content-center">
         <div class="col-md-6">
+
+         <!-- Profilkarte -->
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center pt-4 pb-2">
 
-                    <!-- Avatar Kreis -->
+                    <!-- Avatar Kreis mit den Initialen des Nutzers -->
                     <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
                          style="width: 90px; height: 90px; font-size: 2rem;">
+
+                         <!-- Erster Buchstabe des Vor- und Nachnamens -->
                         {{ user.first_name[0] | upper }}{{ user.last_name[0] | upper }}
                     </div>
 
-                    <!-- Name und Email -->
+                    <!-- Anzeigen der Benutzerdaten -->
                     <h4 class="mb-0 fw-bold">{{ user.first_name }} {{ user.last_name }}</h4>
+
+                     <!-- Name und Email -->
                     <p class="text-muted mb-1">{{ user.email }}</p>
+
+                     <!-- Formatierte Ausgabe des Registrierungsdatums -->
                     <p class="text-muted small mb-3">
                         Mitglied seit {{ user.created_at.strftime('%B %Y') }}
                     </p>
@@ -28,9 +36,15 @@
                     <div class="text-start mb-3">
                         <p class="fw-bold mb-1">Bio</p>
                         <p class="text-muted mb-0">
+
+                         <!-- Prüft, ob eine Bio vorhanden ist -->
                             {% if user.bio %}
+
+                            <!-- Gibt die gespeicherte Bio aus -->
                                 {{ user.bio }}
                             {% else %}
+
+                             <!-- Platzhaltertext, falls keine Bio existiert -->
                                 <em>Noch keine Bio hinterlegt.</em>
                             {% endif %}
                         </p>
@@ -42,9 +56,15 @@
                     <div class="text-start mb-4">
                         <p class="fw-bold mb-1">Kontakt-Info</p>
                         <p class="text-muted mb-0">
+
+                         <!-- Prüft, ob Kontaktinformationen vorhanden sind -->
                             {% if user.contact_info %}
+
+                             <!-- Gibt die gespeicherten Kontaktinformationen aus -->
                                 {{ user.contact_info }}
                             {% else %}
+
+                            <!-- Platzhaltertext, falls keine Kontaktinformationen existieren -->
                                 <em>Keine Kontakt-Info hinterlegt.</em>
                             {% endif %}
                         </p>
@@ -54,7 +74,7 @@
                     <div class="d-grid gap-2 mb-2">
                         <a href="{{ url_for('profile.edit_profile') }}" class="btn btn-primary">
                             Profil bearbeiten
-                        </a>
+                        </a> <!-- Link zur Route edit_profile im profile-Blueprint -->
                     </div>
 
                 </div>
@@ -63,4 +83,4 @@
     </div>
 
 </div>
-{% endblock %}
+{% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->
