@@ -40,7 +40,7 @@
                             {% if trip.description %}
                                 <p class="card-text"><small>{{ trip.description }}</small></p>
                             {% endif %}
-                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            <a href="{{ url_for('trips.trip_detail', trip_id=trip.t_id) }}" class="btn btn-sm btn-primary">Details</a>
                             <a href="#" class="btn btn-sm btn-secondary">Bewerbungen</a>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                             {% if trip.description %}
                                 <p class="card-text"><small>{{ trip.description }}</small></p>
                             {% endif %}
-                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            <a href="{{ url_for('trips.trip_detail', trip_id=trip.t_id) }}" class="btn btn-sm btn-primary">Details</a>
                             <a href="#" class="btn btn-sm btn-secondary">Bewerbungen</a>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                             {% if trip.description %}
                                 <p class="card-text"><small>{{ trip.description }}</small></p>
                             {% endif %}
-                            <a href="#" class="btn btn-sm btn-primary">Details</a>
+                            <a href="{{ url_for('trips.trip_detail', trip_id=trip.t_id) }}" class="btn btn-sm btn-primary">Details</a>
                         </div>
                     </div>
                 </div>
