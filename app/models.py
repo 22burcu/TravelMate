@@ -3,6 +3,9 @@ db= SQLAlchemy()
 from flask_login import UserMixin
 
 
+#models py definiert datenbankmodelle
+
+
 class User(db.Model, UserMixin): #https://coderivers.org/blog/how-to-make-a-website-with-python/
     __tablename__ = "users"
     u_id = db.Column(db.Integer, primary_key=True)
@@ -28,21 +31,22 @@ class TravelStyle(db.Model):
     name = db.Column(db.String(50), nullable=False, unique=True)
     trips = db.relationship('Trip', back_populates='travel_style')
 
-class Location(db.Model):
+class Location(db.Model):       #datenbanktabelle
     __tablename__ = "locations"
-    l_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
+    l_id = db.Column(db.Integer, primary_key=True)      #die eindeutige id die später im trip gespeichert wird 
+    name = db.Column(db.String(255), nullable=False)    #daten der location
     city = db.Column(db.String(100), nullable=False)
 
     trips_as_origin = db.relationship('Trip', foreign_keys='Trip.origin_id', back_populates='origin')
     trips_as_destination = db.relationship('Trip', foreign_keys='Trip.destination_id', back_populates='destination')
+    #so kann eine location mit vielen trips verbunden sein
+    #bei uns momentan beides der selbe ort
 
 
-
-class Trip(db.Model):
+class Trip(db.Model):           #die eigentliche reise tabelle speichert alle informationen einer reise 
     __tablename__ = "trips"
-    t_id = db.Column(db.Integer, primary_key=True)
-    host_u_id = db.Column(db.Integer, db.ForeignKey("users.u_id"), nullable=False)
+    t_id = db.Column(db.Integer, primary_key=True)      #jede reise bekommt ihre eigene nummer
+    host_u_id = db.Column(db.Integer, db.ForeignKey("users.u_id"), nullable=False)  #welcher user hat die reise erstellt
     travel_style_id = db.Column(db.Integer, db.ForeignKey("travel_styles.ts_id"), nullable=False)
     origin_id = db.Column(db.Integer, db.ForeignKey("locations.l_id"), nullable=False)                           # Reiseziel = Startpunkt, wurde geändert, da es sonst zu Problemen mit der Datenbank kommt von (location = db.Column(db.String(255), nullable=False)) auf jetzigen version.
     destination_id = db.Column(db.Integer, db.ForeignKey("locations.l_id"), nullable=False)                            # aus fester Python-Liste, hier auch genau so.
@@ -55,7 +59,7 @@ class Trip(db.Model):
     description = db.Column(db.Text)
     created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
 
-    host = db.relationship('User', back_populates='trips')
+    host = db.relationship('User', back_populates='trips')  #verbindugn zwischen objekten
     travel_style = db.relationship('TravelStyle', back_populates='trips')
     applications = db.relationship('Application', back_populates='trip')
     origin = db.relationship('Location', foreign_keys=[origin_id], back_populates='trips_as_origin')
