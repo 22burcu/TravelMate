@@ -1,25 +1,25 @@
-{% extends "base.html" %}
+{% extends "base.html" %} <!--übernimmt grundgerüst von basehtml -->
 
-{% block content %}
-<div class="container mt-5 mb-5">
+{% block content %} <!--alles zwischen block und endblock wird in den content bereich der base eingefügt -->
+<div class="container mt-5 mb-5">   <!--container zentriert den inhalt m margin außenabstand t top oben b bottom unten 5 größe des abstandes -->
 
     <!-- zurück-button -->
-    <a href="{{ url_for('trips.trips_list') }}" class="btn btn-outline-secondary mb-4">
+    <a href="{{ url_for('trips.trips_list') }}" class="btn btn-outline-secondary mb-4"> <!--href hypertext reference also wohin der link führt-->
         ← Zurück zur Übersicht
-    </a>
+    </a>        <!-- a anker also link -->
 
     <!-- trip hauptkarte -->
-    <div class="card shadow-sm">
-        <div class="card-body p-4">
+    <div class="card shadow-sm">        <!-- die karte bekommt einen kleinen schatten -->
+        <div class="card-body p-4">     <!-- padding innenabstand damit es nicht am rand klebt-->
 
             <!-- titel -->
-            <h2 class="card-title mb-1">{{ trip.destination.city }}</h2>
+            <h2 class="card-title mb-1">{{ trip.destination.city }}</h2> <!--durch variable trip auf eigenschaften zugegriffen-->
             <span class="badge bg-secondary mb-3">{{ trip.continent }}</span>
 
             <!-- infos -->
-            <div class="row mt-3">
-                <div class="col-md-6">
-                    <p><strong>Reisestil:</strong> {{ trip.travel_style.name }}</p>
+            <div class="row mt-3">          <!--row zeile im bootstrap raster mt abstand oben -->
+                <div class="col-md-6">      <!--6 spalten recht und 6 links-col spalte md ab mittlerer bildschirmgröße 6 von 12 spalten-->
+                    <p><strong>Reisestil:</strong> {{ trip.travel_style.name }}</p> <!--der name des styles vom jeweiligem trip -->
                     <p><strong>Startdatum:</strong> {{ trip.start_date }}</p>
                     <p><strong>Enddatum:</strong> {{ trip.end_date }}</p>
                 </div>
@@ -31,14 +31,14 @@
             </div>
 
             <!-- beschreibung -->
-            {% if trip.description %}
+            {% if trip.description %}   <!--gibt es überhaupt eine beschreibung ?-->
             <hr>
             <h5>Beschreibung</h5>
-            <p>{{ trip.description }}</p>
+            <p>{{ trip.description }}</p>   <!--zeigt den text p=paragraph-->
             {% endif %}
 
             <!-- bewerben button -->
-            <hr>
+            <hr>            <!--horizontale trennlinie -->
             <a href="{{ url_for('applications.apply', trip_id=trip.t_id) }}" class="btn btn-primary">Bewerben</a>
 
         </div>
