@@ -1,47 +1,66 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+<!-- Verwendet die Grundstruktur aus base.html.-->
 
 {% block content %}
+<!-- Definiert den Bereich, der in base.html in den content-Block eingefügt wird. -->
 
-<div class="row justify-content-center">
-    <div class="col-md-5 col-lg-4">
+<div class="row justify-content-center"> <!-- Bootstrap-Layout: Erstellt eine Zeile und zentriert den Inhalt horizontal. -->
+    <div class="col-md-5 col-lg-4">      <!-- Bootstrap-Spalte: Legt die Breite des Login-Bereichs abhängig von der Bildschirmgröße fest. -->
 
-        <div class="card shadow-sm mt-4">
 
-            <div class="card-body p-4">
+        <div class="card shadow-sm mt-4">   <!-- Erstellt eine Bootstrap-Karte mit Schatten und Abstand nach oben. -->
 
-                <h2 class="text-center mb-4">
+            <div class="card-body p-4">    <!-- Inhalt der Karte mit Innenabstand. -->
+
+                <h2 class="text-center mb-4">  <!-- Überschrift der Login-Seite. -->
                     Login
                 </h2>
 
                 {% if error %}
+                <!-- Jinja-Abfrage:
+                     Prüft, ob von Flask eine Fehlermeldung an das Template übergeben wurde. -->
+
                     <div class="alert alert-danger" role="alert">
                         {{ error }}
                     </div>
-                {% endif %}
+                {% endif %}  <!-- Wenn ein Fehler existiert, wird er als rote Fehlermeldung angezeigt.
+                     Beispiel: falsches Passwort oder fehlende Eingabe. -->
 
                 <form method="POST" action="{{ url_for('auth.login') }}">
+                <!-- Erstellt ein Formular.
+                     method="POST": Die eingegebenen Daten werden an Flask gesendet.
+                     action: Gibt an, welche Route die Daten verarbeitet.
+                     url_for erstellt automatisch die richtige URL zur login-Funktion im auth Blueprint. -->
 
                     <div class="mb-3">
-                        <label class="form-label">E-Mail</label>
+                        <label class="form-label">E-Mail</label>  <!-- Eingabefeld für die E-Mail. -->
                         <input
-                            type="email"
+                            type="email"                        
                             class="form-control"
                             name="email"
                             required
                             autofocus>
                     </div>
+                    <!-- name="email" ist wichtig, weil Flask später mit
+                         request.form.get("email") auf diesen Wert zugreift.
+                         
+                         required verhindert leeres Absenden im Browser.
+                         autofocus setzt den Cursor direkt in dieses Feld. -->
 
                     <div class="mb-3">
-                        <label class="form-label">Passwort</label>
+                        <label class="form-label">Passwort</label>  <!-- Eingabefeld für das Passwort. -->
                         <input
                             type="password"
                             class="form-control"
                             name="password"
                             required>
                     </div>
+                    <!-- type="password" sorgt dafür, dass die Eingabe verdeckt wird
+                         name="password" ermöglicht den Zugriff über request.form.get("password"). -->
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-dark">
+                        <button type="submit" class="btn btn-dark"> <!-- Absende-Button für das Formular. 
+                                                                    Beim Klick wird das Formular mit POST an die Login-Route gesendet -->
                             Einloggen
                         </button>
                     </div>
@@ -50,7 +69,8 @@
 
             </div>
 
-            <div class="card-footer text-center py-3">
+            <div class="card-footer text-center py-3">  <!-- Fußbereich der Karte mit zentriertem Text. -->
+
                 <small class="text-muted">
                     Noch kein Konto?
                     <a href="{{ url_for('auth.register') }}">
@@ -58,10 +78,12 @@
                     </a>
                 </small>
             </div>
+             <!-- Link zur Registrierungsseite.
+                 url_for erstellt die URL zur register-Funktion im auth Blueprint. -->
 
         </div>
 
     </div>
 </div>
 
-{% endblock %}
+{% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->

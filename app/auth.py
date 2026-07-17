@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash       
 
 from .models import db, User
 
-auth_bp = Blueprint("auth", __name__)
+auth_bp = Blueprint("auth", __name__)   # Ein Blueprint ist wie ein Ordner für zusammengehörige Routen
 
 @auth_bp.route("/register", methods=["GET", "POST"]) 
 def register():
@@ -17,7 +17,7 @@ def register():
     if current_user.is_authenticated:            
         return redirect(url_for('main.index'))
     
-    if request.method == "POST":                # POST-Block: Wird nur ausgeführt, wenn das Formular abgeschickt wurde.
+    if request.method == "POST":                # POST-Block: Wird nur ausgeführt, wenn das Formular abgeschickt wurde
 
         email = request.form.get("email")                         # request.form ist ein Objekt, das Flask bereitstellt
         password = request.form.get("password")                   # enthält die vom HTML-Formular gesendeten
