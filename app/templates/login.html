@@ -4,13 +4,27 @@
 {% block content %}
 <!-- Definiert den Bereich, der in base.html in den content-Block eingefügt wird. -->
 
-<div class="row justify-content-center"> <!-- Bootstrap-Layout: Erstellt eine Zeile und zentriert den Inhalt horizontal. -->
+<div class="row justify-content-center align-items-center" style="min-height: 80vh;"> <!-- Bootstrap-Layout: Erstellt eine Zeile und zentriert den Inhalt horizontal. -->
     <div class="col-md-5 col-lg-4">      <!-- Bootstrap-Spalte: Legt die Breite des Login-Bereichs abhängig von der Bildschirmgröße fest. -->
 
 
         <div class="card shadow-sm mt-4">   <!-- Erstellt eine Bootstrap-Karte mit Schatten und Abstand nach oben. -->
 
             <div class="card-body p-4">    <!-- Inhalt der Karte mit Innenabstand. -->
+
+
+<!--quellen
+bootstrap grid      https://getbootstrap.com/docs/5.3/layout/grid/
+justify content     https://getbootstrap.com/docs/5.3/utilities/flex/
+columns col-md      https://getbootstrap.com/docs/5.3/layout/grid/#grid-options
+card                https://getbootstrap.com/docs/5.3/components/card/
+abstände mt         https://getbootstrap.com/docs/5.3/utilities/spacing/
+flex align-items    https://getbootstrap.com/docs/5.3/utilities/flex/
+breakpoints         https://getbootstrap.com/docs/5.3/layout/breakpoints/
+min height          https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/min-height
+-->
+
+
 
                 <h2 class="text-center mb-4">  <!-- Überschrift der Login-Seite. -->
                     Login
@@ -25,6 +39,14 @@
                     </div>
                 {% endif %}  <!-- Wenn ein Fehler existiert, wird er als rote Fehlermeldung angezeigt.
                      Beispiel: falsches Passwort oder fehlende Eingabe. -->
+
+
+<!--quellen
+jinja2 if           https://jinja.palletsprojects.com/en/stable/templates/#if
+alert               https://getbootstrap.com/docs/5.3/components/alerts/
+-->
+
+
 
                 <form method="POST" action="{{ url_for('auth.login') }}">
                 <!-- Erstellt ein Formular.
@@ -67,6 +89,21 @@
 
                 </form>
 
+
+<!--quellen
+formular method     https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+url_for             https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
+form-control        https://getbootstrap.com/docs/5.3/forms/form-control/
+label+input email   https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
+input type password https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
+required attribut   https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+autofocus attribut  https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus
+button              https://getbootstrap.com/docs/5.3/components/buttons/
+d-grid buttons      https://getbootstrap.com/docs/5.3/components/buttons/#block-buttons
+-->
+
+
+
             </div>
 
             <div class="card-footer text-center py-3">  <!-- Fußbereich der Karte mit zentriertem Text. -->
@@ -87,3 +124,11 @@
 </div>
 
 {% endblock %} <!-- Beendet den content-Block, der in base.html eingefügt wird. -->
+
+
+<!--quellen
+card footer         https://getbootstrap.com/docs/5.3/components/card/
+text small          https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
+farben text-muted   https://getbootstrap.com/docs/5.3/utilities/colors/
+url_for             https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
+-->
