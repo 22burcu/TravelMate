@@ -9,6 +9,7 @@
     background-size: cover;
     background-position: center;
     min-height: 110vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -16,32 +17,37 @@
     padding-top: 120px;
 ">
 <!--quellen
-bilder      https://unsplash.com/de/fotos/silhouettenfoto-von-sechs-personen-auf-dem-gipfel-des-berges-Sj0iMtq_Z4w
-padding     https://www.w3schools.com/cssref/pr_padding-top.php
-flexbox     https://developer.mozilla.org/de/docs/Learn_web_development/Core/CSS_layout/Flexbox
-background  https://www.w3schools.com/htmL/html_images_background.asp
-            https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-position
+bilder              https://unsplash.com/de/fotos/silhouettenfoto-von-sechs-personen-auf-dem-gipfel-des-berges-Sj0iMtq_Z4w
+padding             https://www.w3schools.com/cssref/pr_padding-top.php
+flexbox             https://developer.mozilla.org/de/docs/Learn_web_development/Core/CSS_layout/Flexbox
+background          https://www.w3schools.com/htmL/html_images_background.asp
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-position
+position relative   https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position
 -->
 
 <!--gradient verlauf zum unterem container-->
-<!--    <div style="
+    <div style="
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 100px;
-        background: linear-gradient(to bottom, transparent, black);
+        height: 40px;
+        background: linear-gradient(to bottom, transparent, #13140a);
         ">
     </div>
--->
+
 <!-- quellen
+farbverlauf         https://www.w3schools.com/css/css3_gradients.asp                  
+position absolute   https://developer.mozilla.org/en-US/docs/Web/CSS/position
+hintergrundfarbe    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color
+hex farbe           https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color
 -->
 
 
 
     <div class="text-center py-5">
 
-        <h1 class="display-4 mb-3" text-dark>
+        <h1 class="display-4 mb-3 text-dark">
         Willkommen bei TravelMate
         <i class="bi bi-globe-americas"></i>
         </h1>
@@ -69,35 +75,60 @@ background  https://www.w3schools.com/htmL/html_images_background.asp
 </div>
 
 <!--quellen
-justify content https://getbootstrap.com/docs/5.0/utilities/flex/
-grid system     https://getbootstrap.com/docs/5.0/layout/grid/
-columns col-md  https://stackoverflow.com/questions/24175998/meaning-of-numbers-in-col-md-4-col-xs-1-col-lg-2-in-bootstrap
-input           https://getbootstrap.com/docs/5.3/forms/input-group/
+justify content     https://getbootstrap.com/docs/5.0/utilities/flex/
+grid system         https://getbootstrap.com/docs/5.0/layout/grid/
+columns col-md      https://stackoverflow.com/questions/24175998/meaning-of-numbers-in-col-md-4-col-xs-1-col-lg-2-in-bootstrap
+input               https://getbootstrap.com/docs/5.3/forms/input-group/
 -->
 
 
-    <div class="container-fluid py-5">
-        <div class="row align-items-center">
+<div style="background-color: #13140a;">
+    <div class="container" style="padding-top: 120px; padding-bottom: 120px;">
+        <div class="row align-items-center g-5">
         
             <!-- 1/3 links → dicke schrift -->
-            <div class="col-md-4 text-center">
-                <h1 class="display-3 fw-bold">Reise. Begegne. Erlebe.</h1>
+            <div class="col-md-4">
+                <h1 class="display-4 fw-bold" style="color: #F7E7D3">Reise.<br>Begegne.<br>Erlebe.</h1>
             </div>
 
         <!-- 2/3 rechts → text -->
             <div class="col-md-8">
-                <p class="lead">
-                    TravelMate verbindet Reisende aus aller Welt...
-                </p>
+                <div class="row-md-4">
+                    <h5 class="fw-semibold" style="color: #F5C99B;">Auf Augenhöhe</h5>
+                    <p style="color: #D8CFC4;">
+                            Host und Mitreisende begegnen sich als Gleichberechtigte — niemand ist Kunde, niemand ist Dienstleister.              
+                    </p>
+                
+                    <h5 class="fw-semibold" style="color: #F5C99B;">Ehrlich von Anfang an</h5>
+                    <p style="color: #D8CFC4;">
+                        Klare Grenzen zu Budget, Zeitraum und Erwartungen - damit niemand unterwegs überrascht wird.
+                    </p>
+
+                    <h5 class="fw-semibold" style="color: #F5C99B ;">Respekt vor Ort</h5>
+                    <p style="color: #D8CFC4;">
+                        Wir reisen als Gäste. Kultur, Menschen und Natur begegnen wir mit Offenheit statt Erwartungen.
+                    </p>
+
+                </div>
             </div>
+
+            
 
         </div>
     </div>
+</div>
 
 <!-- Quellen
-layout colums   https://getbootstrap.com/docs/5.3/layout/grid/
-spacing         https://getbootstrap.com/docs/5.3/utilities/spacing/
-typography      https://getbootstrap.com/docs/4.0/content/typography/
+layout colums       https://getbootstrap.com/docs/5.3/layout/grid/
+spacing             https://getbootstrap.com/docs/5.3/utilities/spacing/
+typography          https://getbootstrap.com/docs/4.0/content/typography/
+schriftfarbe        https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color
+hintergrundfarbe    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color
+hex farbe           https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color
+inline styöe        https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/style
+padding             https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding
+spacing             https://getbootstrap.com/docs/5.3/utilities/spacing/
+class selectors     https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Class_selectors
 -->
 
 {% endblock %}
