@@ -75,7 +75,7 @@ def create_trip():    #definition einer funktion
 
 
 
-        destination = Location(name=location, city=location) #macht aus der angabe datenbankobjekt
+        destination = Location(name=location, city=location) #macht aus der eingabe datenbankobjekt
         db.session.add(destination) #speichert neues objekt
         db.session.flush()  #erstellt location id damit der trip mit der richtigen location verknüpft werden kann
 
