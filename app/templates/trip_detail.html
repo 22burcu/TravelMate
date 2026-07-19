@@ -4,9 +4,15 @@
 <div class="container mt-5 mb-5">   <!--container zentriert den inhalt m margin außenabstand t top oben b bottom unten 5 größe des abstandes -->
 
     <!-- zurück-button -->
-    <a href="{{ url_for('trips.trips_list') }}" class="btn btn-outline-secondary mb-4"> <!--href hypertext reference also wohin der link führt-->
+    <a href="javascript:history.back()" class="btn btn-outline-secondary mb-4"> <!--href hypertext reference also wohin der link führt-->
         ← Zurück zur Übersicht
     </a>        <!-- a anker also link -->
+
+<!--quellen
+history back        https://developer.mozilla.org/en-US/docs/Web/API/History/back
+-->
+
+
 
     <!-- trip hauptkarte -->
     <div class="card shadow-sm">        <!-- die karte bekommt einen kleinen schatten -->
