@@ -4,12 +4,14 @@
 <div class="container mt-5 mb-5">   <!--container zentriert den inhalt m margin außenabstand t top oben b bottom unten 5 größe des abstandes -->
 
     <!-- zurück-button -->
-    <a href="javascript:history.back()" class="btn btn-outline-secondary mb-4"> <!--href hypertext reference also wohin der link führt-->
+    <a href="{{ session.get('last_trips_url', url_for('trips.trips_list')) }}" class="btn btn-outline-secondary mb-4"> <!--href hypertext reference also wohin der link führt-->
         ← Zurück zur Übersicht
     </a>        <!-- a anker also link -->
 
 <!--quellen
-history back        https://developer.mozilla.org/en-US/docs/Web/API/History/back
+flask session       https://flask.palletsprojects.com/en/3.0.x/api/#flask.session
+dict get fallback   https://docs.python.org/3/library/stdtypes.html#dict.get
+url_for             https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
 -->
 
 
@@ -45,7 +47,9 @@ history back        https://developer.mozilla.org/en-US/docs/Web/API/History/bac
 
             <!-- bewerben button -->
             <hr>            <!--horizontale trennlinie -->
-            <a href="{{ url_for('applications.apply', trip_id=trip.t_id) }}" class="btn btn-primary">Bewerben</a>
+                <a href="{{ url_for('applications.apply', trip_id=trip.t_id) }}" class="btn btn-primary">
+                    Bewerben
+                </a>
 
         </div>
     </div>
@@ -60,4 +64,7 @@ bootstrap card shadow sm    https://getbootstrap.com/docs/5.3/components/card/
 grid row col-md-6           https://getbootstrap.com/docs/5.3/layout/grid/
 if schleife jinja2          https://jinja.palletsprojects.com/en/3.1.x/templates/#if
 variablen aus models        https://jinja.palletsprojects.com/en/3.1.x/templates/#variables
+flask session       https://flask.palletsprojects.com/en/3.0.x/api/#flask.session
+dict get fallback   https://docs.python.org/3/library/stdtypes.html#dict.get
+url_for             https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
 -->
