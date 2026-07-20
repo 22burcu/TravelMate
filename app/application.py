@@ -45,7 +45,7 @@ def apply(trip_id):
             status="pending"
         )
         db.session.add(application)
-        
+
         try:
             db.session.commit()
         except IntegrityError:
@@ -97,6 +97,20 @@ def reject_application(app_id):
     db.session.commit()
     flash("Bewerbung abgelehnt.", "info")
     return redirect(url_for("dashboard.host_dashboard"))
+
+@applications_bp.route("/applications/<int:app_id>/withdraw", methods=["POST"])
+@login_required
+def withdraw_application(app_id):
+    application = Application.query.get_or_404(app_id)
+
+    if application.joiner_u_id != current_user.u_id:
+        flash("Du kannst nur deine eigenen Bewerbungen zurückziehen.", "danger")
+        return redirect(url_for("dashboard.joiner_dashboard"))
+
+    db.session.delete(application)
+    db.session.commit()
+    flash("Bewerbung zurückgezogen.", "info")
+    return redirect(url_for("dashboard.joiner_dashboard"))
 
 # genutzte Quellen
 # blueprint                       https://flask.palletsprojects.com/en/3.0.x/blueprints/
