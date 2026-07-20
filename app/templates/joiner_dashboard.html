@@ -72,6 +72,12 @@
                          <!-- Link zur Detailansicht der Reise -->
                         <td>
                             <a href="{{ url_for('trips.trip_detail', trip_id=app.trip.t_id) }}" class="btn btn-sm btn-primary">Details</a>
+                            <!-- FIX BUG 2: Zurückziehen-Button, nur solange die Bewerbung noch offen ist -->
+                            {% if app.status == 'pending' %}
+                                <form method="POST" action="{{ url_for('applications.withdraw_application', app_id=app.a_id) }}" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Zurückziehen</button>
+                                </form>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
