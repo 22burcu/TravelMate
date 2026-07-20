@@ -28,6 +28,13 @@ def apply(trip_id):
         budget_min = request.form.get("budget_min")
         budget_max = request.form.get("budget_max")
 
+        try:
+            budget_min = int(budget_min)
+            budget_max = int(budget_max)
+        except (ValueError, TypeError):
+            flash("Bitte gib ein gültiges Budget ein.", "danger")
+            return render_template("apply.html", trip=trip)
+
         # bewerbung erstellen und speichern
         application = Application(
             trip_t_id=trip_id,
