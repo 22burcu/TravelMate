@@ -34,20 +34,31 @@ def apply(trip_id):
         budget_min = request.form.get("budget_min")
         budget_max = request.form.get("budget_max")
 
+        try:
+            budget_min = int(budget_min)
+            budget_max = int(budget_max)
+        except (ValueError, TypeError):
+            flash("Bitte gib ein gültiges Budget an.", "danger")
+            return render_template("apply.html", trip=trip)
+
+        if budget_max < budget_min:
+            flash("Das maximale Budget darf nicht kleiner sein als das minimale Budget.", "danger")
+            return render_template("apply.html", trip=trip)
+
         # bewerbung erstellen und speichern
         application = Application(
             trip_t_id=trip_id,
             joiner_u_id=current_user.u_id,
             message=message,
-            budget_min=int(budget_min),
-            budget_max=int(budget_max),
+            budget_min=budget_min,
+            budget_max=budget_max,
             status="pending"
         )
         db.session.add(application)
         db.session.commit()
 
         flash("Bewerbung erfolgreich abgeschickt!", "success")
-        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+        return redirect(url_for("dashboard.joiner_dashboard"))
 
     return render_template("apply.html", trip=trip)
 
