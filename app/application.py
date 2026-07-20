@@ -10,6 +10,24 @@ def apply(trip_id):
     # trip holen, 404 wenn nicht gefunden
     trip = Trip.query.get_or_404(trip_id)
 
+    # Der Host darf nicht aufeigene Reise bewerben.
+    if trip.host_u_id == current_user.u_id:
+        flash("Du kannst dich nicht auf deine eigene Reise bewerben.", "warning")
+        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+
+    # Doppelte Bewerbung abfangen
+    existing = Application.query.filter_by(
+        trip_t_id=trip_id, joiner_u_id=current_user.u_id
+    ).first()
+    if existing:
+        flash("Du hast dich für diese Reise bereits beworben.", "info")
+        return redirect(url_for("dashboard.joiner_dashboard"))
+
+    # Ist die Reise schon voll?
+    if trip.is_full:
+        flash("Diese Reise ist bereits voll belegt.", "warning")
+        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+
     if request.method == "POST":
         # formulardaten holen
         message = request.form.get("message")
