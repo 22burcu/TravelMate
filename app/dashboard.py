@@ -46,6 +46,7 @@ def joiner_dashboard():
     
     return render_template("joiner_dashboard.html", applications=applications) #übergibt applications wert and html template
 
+
 #-----------------------------------------------------------------------------
 # QUELLEN
 #-----------------------------------------------------------------------------
