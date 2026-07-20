@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_required, current_user
 from .models import db, Application, Trip
+from sqlalchemy.exc import IntegrityError
 
 applications_bp = Blueprint("applications", __name__)
 
@@ -9,6 +10,17 @@ applications_bp = Blueprint("applications", __name__)
 def apply(trip_id):
     # trip holen, 404 wenn nicht gefunden
     trip = Trip.query.get_or_404(trip_id)
+
+    if trip.host_u_id == current_user.u_id:
+        flash("Du kannst dich nicht auf deine eigene Reise bewerben.", "danger")
+        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+    
+    existing = Application.query.filter_by(
+        trip_t_id=trip_id, joiner_u_id=current_user.u_id
+    ).first()
+    if existing:
+        flash("Du hast dich für diese Reise bereits beworben.", "warning")
+        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
 
     if request.method == "POST":
         # formulardaten holen
