@@ -45,7 +45,13 @@ def apply(trip_id):
             status="pending"
         )
         db.session.add(application)
-        db.session.commit()
+        
+        try:
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            flash("Du hast dich für diese Reise bereits beworben.", "warning")
+            return redirect(url_for("trips.trip_detail", trip_id=trip_id))
 
         flash("Bewerbung erfolgreich abgeschickt!", "success")
         return redirect(url_for("trips.trip_detail", trip_id=trip_id))
