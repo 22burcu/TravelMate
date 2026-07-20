@@ -10,26 +10,55 @@ def apply(trip_id):
     # trip holen, 404 wenn nicht gefunden
     trip = Trip.query.get_or_404(trip_id)
 
+    # Der Host darf nicht aufeigene Reise bewerben.
+    if trip.host_u_id == current_user.u_id:
+        flash("Du kannst dich nicht auf deine eigene Reise bewerben.", "warning")
+        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+
+    # Doppelte Bewerbung abfangen
+    existing = Application.query.filter_by(
+        trip_t_id=trip_id, joiner_u_id=current_user.u_id
+    ).first()
+    if existing:
+        flash("Du hast dich für diese Reise bereits beworben.", "info")
+        return redirect(url_for("dashboard.joiner_dashboard"))
+
+    # Ist die Reise schon voll?
+    if trip.is_full:
+        flash("Diese Reise ist bereits voll belegt.", "warning")
+        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+
     if request.method == "POST":
         # formulardaten holen
         message = request.form.get("message")
         budget_min = request.form.get("budget_min")
         budget_max = request.form.get("budget_max")
 
+        try:
+            budget_min = int(budget_min)
+            budget_max = int(budget_max)
+        except (ValueError, TypeError):
+            flash("Bitte gib ein gültiges Budget an.", "danger")
+            return render_template("apply.html", trip=trip)
+
+        if budget_max < budget_min:
+            flash("Das maximale Budget darf nicht kleiner sein als das minimale Budget.", "danger")
+            return render_template("apply.html", trip=trip)
+
         # bewerbung erstellen und speichern
         application = Application(
             trip_t_id=trip_id,
             joiner_u_id=current_user.u_id,
             message=message,
-            budget_min=int(budget_min),
-            budget_max=int(budget_max),
+            budget_min=budget_min,
+            budget_max=budget_max,
             status="pending"
         )
         db.session.add(application)
         db.session.commit()
 
         flash("Bewerbung erfolgreich abgeschickt!", "success")
-        return redirect(url_for("trips.trip_detail", trip_id=trip_id))
+        return redirect(url_for("dashboard.joiner_dashboard"))
 
     return render_template("apply.html", trip=trip)
 
