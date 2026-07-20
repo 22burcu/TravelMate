@@ -98,7 +98,7 @@ def create_trip():    #definition einer funktion
         db.session.commit()     #hierdurch entgültig gespeichert
 
         flash("Reise erfolgreich erstellt!", "success")
-        return redirect(url_for("main.index")) #user wird zum dashboard geschickt
+        return redirect(url_for("dashboard.host_dashboard")) 
     
     return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS) #wenn user seite zum ersten mal aufruft
 
@@ -113,6 +113,7 @@ def trips_list():
     budget_min = request.args.get("budget_min", "")
     budget_max = request.args.get("budget_max", "")
     start_date_str = request.args.get("start_date", "")
+    end_date_str = request.args.get("end_date", "") 
     
     query = Trip.query.join(Location, Trip.destination_id == Location.l_id) #datenbankabfrage-hole trips und verbinde sie mit der locationtabelle
                                                                             #weil mein trip nur eine id speichert aber ich nach tokyo suche
@@ -130,7 +131,9 @@ def trips_list():
     if start_date_str:
         start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()   #in Datum(...,..,..) umwandeln 
         query = query.filter(Trip.start_date >= start_date)                 #zeige reisen die ab diesem datum beginnen
-
+    if end_date_str:                                                       
+        end_date = datetime.strptime(end_date_str, "%Y-%m-%d").date()       
+        query = query.filter(Trip.end_date <= end_date)                     
 
     trips = query.all()         #führt die suche aus - sql abfrage an db senden
     travel_styles = TravelStyle.query.all()     #wieder extra weil es ein dropdown ist
@@ -144,6 +147,7 @@ def trips_list():
             budget_min=budget_min,
             budget_max=budget_max,
             start_date=start_date_str,
+            end_date=end_date_str,             
             continents=CONTINENTS,              #dropdown anzeigen
             travel_styles=travel_styles,
             )
@@ -175,6 +179,23 @@ trips holen oder error          https://flask-sqlalchemy.palletsprojects.com/en/
 """
 
 
+
+@trips_bp.route("/trips/<int:trip_id>/delete", methods=["POST"])
+@login_required
+def delete_trip(trip_id):
+    trip = Trip.query.get_or_404(trip_id)
+
+    if trip.host_u_id != current_user.u_id:                             
+        flash("Du kannst nur deine eigenen Reisen löschen.", "danger")
+        return redirect(url_for("dashboard.host_dashboard"))
+
+    for application in trip.applications:                                 
+        db.session.delete(application)                                  
+
+    db.session.delete(trip)
+    db.session.commit()
+    flash("Reise gelöscht.", "info")
+    return redirect(url_for("dashboard.host_dashboard"))
 
 
 @trips_bp.route("/api/trips", methods=["GET"]) 
