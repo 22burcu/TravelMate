@@ -179,24 +179,23 @@ trips holen oder error          https://flask-sqlalchemy.palletsprojects.com/en/
 """
 
 
-
 @trips_bp.route("/trips/<int:trip_id>/delete", methods=["POST"])
 @login_required
 def delete_trip(trip_id):
     trip = Trip.query.get_or_404(trip_id)
 
-    if trip.host_u_id != current_user.u_id:                             
+    if trip.host_u_id != current_user.u_id:
         flash("Du kannst nur deine eigenen Reisen löschen.", "danger")
         return redirect(url_for("dashboard.host_dashboard"))
 
-    for application in trip.applications:                                 
-        db.session.delete(application)                                  
+    # zugehörige Bewerbungen zuerst löschen, sonst Foreign-Key-Fehler
+    for application in trip.applications:
+        db.session.delete(application)
 
     db.session.delete(trip)
     db.session.commit()
     flash("Reise gelöscht.", "info")
     return redirect(url_for("dashboard.host_dashboard"))
-
 
 @trips_bp.route("/api/trips", methods=["GET"]) 
 def api_trips():      #api schnittstelle über die programme daten austauschen
