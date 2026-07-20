@@ -135,7 +135,7 @@ def trips_list():
     trips = query.all()         #führt die suche aus - sql abfrage an db senden
     travel_styles = TravelStyle.query.all()     #wieder extra weil es ein dropdown ist
     
-    session['last_trips_url'] = request.url
+    session['last_list_url'] = request.url
     return render_template ("trips.html",       #jz wird die seite geöffnet 
             trips=trips,                        #gefundene reisen
             destination=destination,            #aktuelle filterwerte behalten
