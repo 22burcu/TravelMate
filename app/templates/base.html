@@ -54,18 +54,25 @@ ansicht     https://www.w3schools.com/bootstrap4/bootstrap_navs.asp
 schleife    https://gist.github.com/leongjinqwen/a205cbe8185d8c83f9d300cc6c8634f1
 -->
 
-    {% block fullwidth %}{% endblock %}
-    <div class="container"> <!-- für flash massages-->
+    
+
+         <!-- für flash massages-->
         {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert"> <!--alert box zeigt automatisch nachricht wie erfolgreich registriert zb-->
-                            {{ message }}
-                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>
-                     {% endfor %}
-                 {% endif %}
+                    <div class="container" style="position: absolute; left: 0; right: 0; top: 80px; z-index: 1050;">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert"> <!--alert box zeigt automatisch nachricht wie erfolgreich registriert zb-->
+                                    {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
         {% endwith %}
+    
+
+    {% block fullwidth %}{% endblock %}
+    <div class="container">
         {% block content %}{% endblock %}
     </div>
 
@@ -92,6 +99,8 @@ warning https://getbootstrap.com/docs/4.0/components/alerts/
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
+
         }
         footer {
             margin-top: auto !important;
