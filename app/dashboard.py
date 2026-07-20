@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, session
 from flask_login import login_required, current_user
 from .models import Trip, db, Application
 from datetime import date
@@ -30,6 +30,7 @@ def host_dashboard():
             Trip.host_u_id == current_user.u_id       # Nur Trips des aktuellen Users
         ).all()
 
+        session['last_list_url'] = request.url
         return render_template("host_dashboard.html",         #Übergibt die geladenen Trips und Bewerbungen an das HTML-Template
                                open_trips=open_trips,         
                                active_trips=active_trips, 
@@ -44,6 +45,7 @@ def joiner_dashboard():
           joiner_u_id=current_user.u_id           # nur Bewerbungen, bei denen der eingeloggte Nutzer der Joiner ist
           ).all()
     
+    session['last_list_url'] = request.url
     return render_template("joiner_dashboard.html", applications=applications) #übergibt applications wert and html template
 
 
@@ -54,3 +56,5 @@ def joiner_dashboard():
 # current_user              https://flask-login.readthedocs.io/en/latest/#flask_login.current_user
 # SQLAlchemy Queries        https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
 #                           https://docs.sqlalchemy.org/en/20/orm/queryguide/
+# session speichern              https://flask.palletsprojects.com/en/3.0.x/api/#flask.session
+# vollständige url der anfrage   https://flask.palletsprojects.com/en/3.0.x/api/#flask.Request.url
