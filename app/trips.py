@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for, flash, jsonify #request liest http dateien die der browser an den server schickt, zb ausfüllen von formularen durch den nutzer
+from flask import Blueprint, request, render_template, redirect, url_for, flash, jsonify, session #request liest http dateien die der browser an den server schickt, zb ausfüllen von formularen durch den nutzer
 from flask_login import login_required, current_user
 from datetime import datetime
 from .models import db, Trip, TravelStyle, Location
@@ -135,6 +135,7 @@ def trips_list():
     trips = query.all()         #führt die suche aus - sql abfrage an db senden
     travel_styles = TravelStyle.query.all()     #wieder extra weil es ein dropdown ist
     
+    session['last_trips_url'] = request.url
     return render_template ("trips.html",       #jz wird die seite geöffnet 
             trips=trips,                        #gefundene reisen
             destination=destination,            #aktuelle filterwerte behalten
@@ -156,7 +157,9 @@ operatoren wie .ilike()                   https://docs.sqlalchemy.org/en/20/core
 tokyo iwo im namen suchen f"%{}           https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
 string zu zahl umwandeln                  https://docs.python.org/3/library/functions.html#int
 string zu datum umwandeln                 https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
-
+session speichern                         https://flask.palletsprojects.com/en/3.0.x/api/#flask.session
+vollständige url der anfrage              https://flask.palletsprojects.com/en/3.0.x/api/#flask.Request.url
+ki quelle session get zurück button im ki quellenverzeichnis
 """
 
 
