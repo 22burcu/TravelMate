@@ -87,3 +87,21 @@ class Application(db.Model):
     # Das ist ein Tabellenweites regel, die sicherstellt, dass ein Joiner sich nur einmal pro Trip bewerben kann.
 
 
+''' quellen
+youtube using sql alchemy database              https://www.youtube.com/watch?v=uZnp21fu8TQ
+youtube slqalchemy relationship back_populates  https://www.youtube.com/watch?v=oKWW7qtmvpw
+youtube keys                                    https://www.youtube.com/watch?v=dB_wyZbqwBk
+youtube 1 zu viele beziehungen                  https://www.youtube.com/watch?v=3N9JqtpkFJI
+flask-sqlalchemy grundlagen                     https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/
+modelle definieren (db.Model)                   https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/models/
+spalten und datentypen                          https://docs.sqlalchemy.org/en/20/core/type_basics.html
+db.Column optionen                              https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html
+primary key                                     https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html
+foreign key (fremdschlüssel)                    https://docs.sqlalchemy.org/en/20/core/constraints.html#defining-foreign-keys
+relationship beziehungen                        https://docs.sqlalchemy.org/en/20/orm/relationship_api.html#sqlalchemy.orm.relationship
+back_populates verknüpfung                      https://docs.sqlalchemy.org/en/20/orm/backref.html#relationships-backref
+unique constraint                               https://docs.sqlalchemy.org/en/20/core/constraints.html#unique-constraint
+server_default now() zeitstempel                https://docs.sqlalchemy.org/en/20/core/defaults.html#server-invoked-ddl-explicit-default-expressions
+UserMixin flask-login                           https://flask-login.readthedocs.io/en/latest/#your-user-class
+get_id() für flask-login                        https://flask-login.readthedocs.io/en/latest/#your-user-class
+'''
