@@ -72,8 +72,9 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 [You must maintain a comprehensive AI Directory, as per [FB1 Regulations on Generative AI Use](../assets/pdf/FB1_KI_Regelung_DE_ENG.pdf). "Catch-all" disclosure (like "AI Tool used for bugfixing") is generally not sufficient. You may list an *AI Tool* multiple times, e.g., if you have used it for different purposes / in different parts of your project. Any use of Agentic AI is **forbidden**.]
 
-| #   | AI Tool | Purpose of Use | Affected Sections (Code + Docs) | Remarks, Procedure, Prompts |
-| :-- | :--     | :--            | :--                             | :--                         |
-| 01  |         |                |                                 |                             |
-| 02  |         |                |                                 |                             |
-| ... |         |                |                                 |                             |
+| # | AI Tool | Purpose of Use | Affected Sections (Code + Docs) | Remarks, Procedure, Prompts |
+|---|---|---|---|---|
+| 01 | Perplexity | Backend-Logik & Access-Control (Flask-Login) | Flask Routes (apply), Models (Post, Application), Views | Prompt: "Wie verhindere ich, dass User sich auf eigenen Post bewerben?" → Lösung über current_user.id == owner_id, inkl. Redirect & Flash |
+| 02 | Perplexity | Error Analysis (Werkzeug / Hashing) | Auth-Logic, Passwort-Hashing, Security-Konfiguration | Prompt: "Fehler hashlib.scrypt macOS" → Ursache (LibreSSL), Fix: method="pbkdf2:sha256" oder Python mit OpenSSL |
+| 03 | Perplexity | Debugging Datenbank / Deployment | SQLite DB, File Permissions, Flask Config / Instance Path | Prompt: "sqlite readonly database" → Ursache: fehlende Schreibrechte, Fix via chown, chmod, Verzeichnisrechte |
+ 
