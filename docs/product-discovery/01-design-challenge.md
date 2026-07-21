@@ -33,6 +33,5 @@ Aus der Design Challenge und den vier Kernproblemen haben wir die folgenden Lös
 
 ## [Raw Material]
 
-[List / link / paste any material that you created or referenced while working on the **Design Challenge** definition.
+![Reise erstellen](docs/product-discovery/material/01-dc/Reise_erstellen.png) 
 
-Ideally, put any material that you created on your own in the folder `📁 docs/product-discovery/material/01-dc/` (e.g., a scribble as .png image file), and link it on this page.]
