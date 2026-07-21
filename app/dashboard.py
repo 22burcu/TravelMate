@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template,  request, session
 from flask_login import login_required, current_user
 from .models import Trip, db, Application
 from datetime import date
@@ -29,7 +29,6 @@ def host_dashboard():
         incoming_applications = Application.query.join(Trip).filter(   # Sucht alle Bewerbungen auf die eigenen Reisen des eingeloggten Hosts
             Trip.host_u_id == current_user.u_id       # Nur Trips des aktuellen Users
         ).all()
-
         session['last_list_url'] = request.url
         return render_template("host_dashboard.html",         #Übergibt die geladenen Trips und Bewerbungen an das HTML-Template
                                open_trips=open_trips,         
@@ -44,17 +43,22 @@ def joiner_dashboard():
     applications = Application.query.filter_by(  #sucht in der Applcation tabelle..
           joiner_u_id=current_user.u_id           # nur Bewerbungen, bei denen der eingeloggte Nutzer der Joiner ist
           ).all()
-    
     session['last_list_url'] = request.url
     return render_template("joiner_dashboard.html", applications=applications) #übergibt applications wert and html template
-
-
 
 #-----------------------------------------------------------------------------
 # QUELLEN
 #-----------------------------------------------------------------------------
+# Blueprint                 https://flask.palletsprojects.com/en/stable/blueprints/
 # current_user              https://flask-login.readthedocs.io/en/latest/#flask_login.current_user
-# SQLAlchemy Queries        https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
-#                           https://docs.sqlalchemy.org/en/20/orm/queryguide/
-# session speichern              https://flask.palletsprojects.com/en/3.0.x/api/#flask.session
+# SQLAlchemy Queries        https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/, https://docs.sqlalchemy.org/en/20/orm/queryguide/
+# Blueprint                 https://flask.palletsprojects.com/en/stable/blueprints/
+# render_template           https://flask.palletsprojects.com/en/stable/api/#flask.render_template
+# login_required            https://flask-login.readthedocs.io/en/latest/#flask_login.login_required
+# current_user              https://flask-login.readthedocs.io/en/latest/#flask_login.current_user
+# SQLAlchemy filter()       https://docs.sqlalchemy.org/en/20/orm/queryguide/query.html#sqlalchemy.orm.Query.filter
+# SQLAlchemy filter_by()    https://flask-sqlalchemy.palletsprojects.com/en/stable/queries/#sqlalchemy.orm.Query.filter_by
+# SQLAlchemy join()         https://docs.sqlalchemy.org/en/20/orm/queryguide/query.html#sqlalchemy.orm.Query.join
+# date.today()              https://docs.python.org/3/library/datetime.html#datetime.date.today
+#session speichern              https://flask.palletsprojects.com/en/3.0.x/api/#flask.session
 # vollständige url der anfrage   https://flask.palletsprojects.com/en/3.0.x/api/#flask.Request.url

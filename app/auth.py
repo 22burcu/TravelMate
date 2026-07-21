@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from flask import Blueprint, request, render_template, redirect, url_for, flash #Flask Werkzeuge
-from flask_login import login_user, login_required, logout_user, current_user   # 
+from flask_login import login_user, login_required, logout_user, current_user   
 from werkzeug.security import generate_password_hash, check_password_hash       # Für sichere Passwörter
 
 from .models import db, User
@@ -128,13 +128,16 @@ def logout():
 # ----------------------------------------------------------------------------
 # QUELLEN
 # ----------------------------------------------------------------------------
-# Blueprints                https://flask.palletsprojects.com/en/3.0.x/blueprints/
-# Formulardaten (request)   https://flask.palletsprojects.com/en/3.0.x/api/#flask.Request.form
-# Passwort-Hashing          https://werkzeug.palletsprojects.com/en/3.0.x/utils/#module-werkzeug.security
-# Flask-Login               https://flask-login.readthedocs.io/en/latest/
-# is_authenticated          https://flask-login.readthedocs.io/en/latest/#flask_login.UserMixin
-# Flash-Nachrichten         https://flask.palletsprojects.com/en/3.0.x/patterns/flashing/
-# Datum parsen (strptime)   https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
-# SQLAlchemy Queries        https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
-# all() Funktion            https://docs.python.org/3/library/functions.html#all
-# logout                    https://flask-login.readthedocs.io/en/latest/
+# Blueprints                 https://flask.palletsprojects.com/en/stable/blueprints/
+# Formulardaten (request)    https://www.geeksforgeeks.org/html/retrieving-html-from-data-using-flask/ 
+# Passwort-Hashing           https://werkzeug.palletsprojects.com/en/stable/utils/#module-werkzeug.security
+# Flask-Login (login/logout) https://flask-login.readthedocs.io/en/latest/login-example
+# redirect                   https://flask.palletsprojects.com/en/stable/api/#flask.redirect
+# is_authenticated           https://flask-login.readthedocs.io/en/latest/#your-user-class
+# Flash-Nachrichten          https://flask.palletsprojects.com/en/stable/patterns/flashing/
+# Datum parsen (strptime)    https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
+# SQLAlchemy Queries         https://flask-sqlalchemy.palletsprojects.com/en/stable/queries/
+# Session commit/rollback    https://docs.sqlalchemy.org/en/20/orm/session_basics.html
+# all() Funktion             https://docs.python.org/3/library/functions.html#all
+# url_for()                  https://flask.palletsprojects.com/en/stable/api/#flask.url_for
+# 
