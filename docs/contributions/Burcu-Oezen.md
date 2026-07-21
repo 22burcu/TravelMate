@@ -77,12 +77,14 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | #   | AI Tool | Purpose of Use | Affected Sections (Code + Docs) | Remarks, Procedure, Prompts |
 | :-- | :--     | :--            | :--                             | :--                         |
-| 01  | Perplexity AI | Profilkreis mit Initialien | Profile.py, profil.html | [Profilkreis](assests/pdf/Profilkreis_mit_Initialien.pdf)                             |
-| 02  | Perplexity AI | Fehler im Code auffangen damit Seite nicht crashed | auth.py | [ty-except](assets/pdf/Try_except.pdf) |
-| 03  | ChatGpt | Wie sucht man User in der DB | auth.py | [Benutzersuche](assets/pdf/Benutzersuche_in_DB.pdf) |
-| 04  | ChatGpt | Einladung auf github für Repository schickt | --- | [Contributer einladen](assets/pdf/Repository_Einladen.pdf) |
-| 05  | ChatGpt | Repository setup | --- | [Repo setup](assets/pdf/GitHub_Repository_klonen.pdf) |
-| 06  | ChatGpt | Wie man im Markdown Text formatiert | Individual Contribution, Design Decisions | [Markdown Formatierung](assets/pdf/Markdown_Stichpunkte.pdf) |
-| 07  | Perplexity AI | Fehler finden im html Code | host_dashbord.html | [Fehler finden](assets/pdf/Fehlermeldung_Dashboard.pdf)|
-| 08  | Perplexity AI | Nach Bewerbungen filtern, die der Host erhält| dashboard.py | [Bewerbungen filtern](assets/pdf/Bewerbungen_filtern.pdf) |
-| 09  |         |                |                                 |                             |
+| 01  | Perplexity AI | Profilkreis mit Initialien | Profile.py, profil.html | [Profilkreis](../assets/pdf/Profilkreis_mit_Initialien.pdf)|
+| 02  | Perplexity AI | Fehler im Code auffangen damit Seite nicht crashed | auth.py | [ty-except](../assets/pdf/Try_except.pdf) |
+| 03  | ChatGpt | Wie sucht man User in der DB | auth.py | [Benutzersuche](../assets/pdf/Benutzersuche_in_DB.pdf) |
+| 04  | ChatGpt | Einladung auf github für Repository schickt | --- | [Contributer einladen](../assets/pdf/Repository_Einladen.pdf) |
+| 05  | ChatGpt | Repository setup | --- | [Repo setup](../assets/pdf/GitHub_Repository_klonen.pdf) |
+| 06  | ChatGpt | Wie man im Markdown Text formatiert | Individual Contribution, Design Decisions | [Markdown Formatierung](../assets/pdf/Markdown_Stichpunkte.pdf) |
+| 07  | Perplexity AI | Fehler finden im html Code | host_dashbord.html | [Fehler finden](../assets/pdf/Fehlermeldung_Dashboard.pdf)|
+| 08  | Perplexity AI | Nach Bewerbungen filtern, die der Host erhält| dashboard.py | [Bewerbungen filtern](../assets/pdf/Bewerbungen_filtern.pdf) |
+
+ 
+ 
