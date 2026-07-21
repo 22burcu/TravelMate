@@ -78,6 +78,6 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | #   | AI Tool | Purpose of Use | Affected Sections (Code + Docs) | Remarks, Procedure, Prompts |
 | :-- | :--     | :--            | :--                             | :--                         |
-| 01  |         |                |                                 |                             |
-| 02  |         |                |                                 |                             |
-| ... |         |                |                                 |                             |
+| 01  | Perplexity AI | Verständnis der dynamischen Query — erkennen, wann ein Filter angewendet wird, inkl. Beispiel | trips.py, trips_list-Route | if-Abfrage vor Filter |
+| 02  | Perplexity AI | Warum flush() vor commit() nötig ist | trips.py | ID reservieren vor Speichern |
+| 03  | Perplexity AI |     Commits nicht auf GitHub sichtbar — E-Mail korrigieren           |                                 |                             |
