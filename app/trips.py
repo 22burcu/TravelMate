@@ -20,7 +20,7 @@ def create_trip():    #definition einer funktion
                                             #alle reisestille aus der datenbank holen damit die zur auswhal stehen 
 
     if request.method == "POST": #liest formulardaten, prüft, speichert,zeigt erfolgsmeldung, zurück zur startseite
-        #Schritt 2 -> die notwendigen Formulardaten holen  #request liest http-anfragen des browsers die an den server gesendet werden 
+        #request liest http-anfragen des browsers die an den server gesendet werden 
         location = request.form.get("location")    #request.form.get() die einzelnen eingaben des benutzers aus dem html fomrular auslesen
         continent = request.form.get("continent")  #kommen nicht aus datenbank sondern festen python datei
         travel_style_id = request.form.get("travel_style_id") #weil kontinente konstant sind und reisestile
@@ -32,7 +32,6 @@ def create_trip():    #definition einer funktion
         description = request.form.get("description") 
 
 
-        #Schritt 3: Die Datumsfelder in echte Date-Objekte umwandeln
         #nachdem benutzer das formular abgeschickt hat und flaks werte ausgelesen hat 
         #die eingegebenen daten werden überprüft und in die richtige datentypen umgewandelt
         try:                     #ist eine fehlerbehandlung - exception handling-falls 
@@ -51,11 +50,7 @@ def create_trip():    #definition einer funktion
             ) 
 
 
-#Quelle: programiz.com
-
-
-
-        #Schritt 4: Validierung der Bedingung-also macht die eingabe überhaupt sinn??
+        #validierung der Bedingung-also macht die eingabe überhaupt sinn??
         if end_date < start_date:
             flash("Das Enddatum darf nicht vor dem Startdatum liegen.", "danger")
             return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS)
@@ -66,7 +61,7 @@ def create_trip():    #definition einer funktion
         
 
 
-        #Schritt 5: Geschäftsregeln prüfen (max. 3 offene Trips, keine Überschneidungen!)
+        #prüfung der geschäftsregeln business rules
         allowed, error = can_host_create_trip(current_user.u_id, start_date, end_date) #funktion kommt aus business rules py
         if not allowed:
             flash(error, "danger")
@@ -102,6 +97,29 @@ def create_trip():    #definition einer funktion
     
     return render_template("create_trip.html", travel_styles=travel_styles, continents=CONTINENTS) #wenn user seite zum ersten mal aufruft
 
+
+''' quellen
+blueprint                     		    https://flask.palletsprojects.com/en/3.0.x/blueprints/
+route decorator + methods     		    https://flask.palletsprojects.com/en/3.0.x/api/#flask.Flask.route
+@login_required               		    https://flask-login.readthedocs.io/en/latest/#flask_login.login_required
+current_user                  		    https://flask-login.readthedocs.io/en/latest/#flask_login.current_user
+formulardaten auslesen        		    https://flask.palletsprojects.com/en/3.0.x/api/#flask.Request.form
+query.all()                   		    https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#select
+datetime.strptime             		    https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
+.date() aus datetime          		    https://docs.python.org/3/library/datetime.html#datetime.datetime.date
+int() typumwandlung           		    https://docs.python.org/3/library/functions.html#int
+try/except fehlerbehandlung   		    https://docs.python.org/3/tutorial/errors.html#handling-exceptions
+ValueError                    		    https://docs.python.org/3/library/exceptions.html#ValueError
+TypeError                     		    https://docs.python.org/3/library/exceptions.html#TypeError
+flash nachrichten             		    https://flask.palletsprojects.com/en/3.0.x/patterns/flashing/
+render_template               		    https://flask.palletsprojects.com/en/3.0.x/api/#flask.render_template
+if bedingung / vergleich      		    https://docs.python.org/3/tutorial/controlflow.html#if-statements
+neues objekt erstellen und hinzufügen   https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#insert-update-delete
+flush() id vor commit holen   		    https://docs.sqlalchemy.org/en/20/orm/session_basics.html#flushing
+commit() endgültig speichern  		    https://docs.sqlalchemy.org/en/20/orm/session_basics.html#committing
+weiterleiten nach dem erstellen         https://flask.palletsprojects.com/en/3.0.x/api/#flask.redirect
+url_for                                 https://flask.palletsprojects.com/en/3.0.x/api/#flask.url_for
+'''
 
 
 
@@ -173,10 +191,12 @@ def trip_detail(trip_id):               # trip anhand der id aus der db holen, 4
     trip = Trip.query.get_or_404(trip_id)
     return render_template("trip_detail.html", trip=trip)   #html seite öffnen und gefunden trip wird an html template übergeben
 
+
 """ quellen
 url parameter <int:trip_id>     https://flask.palletsprojects.com/en/3.0.x/quickstart/#variable-rules
 trips holen oder error          https://flask-sqlalchemy.palletsprojects.com/en/stable/queries/#get-or-404
 """
+
 
 
 @trips_bp.route("/trips/<int:trip_id>/delete", methods=["POST"])
@@ -197,6 +217,22 @@ def delete_trip(trip_id):
     flash("Reise gelöscht.", "info")
     return redirect(url_for("dashboard.host_dashboard"))
 
+
+''' quellen
+YouTube datenbankeinträge löschen 	    https://www.youtube.com/watch?v=7jKsHOZk-IE
+Youtube datenbankeinträge löschen	    https://www.youtube.com/watch?v=y4ua8SsT0So
+trip holen oder 404                     https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#queries-for-views
+route mit POST methode                  https://flask.palletsprojects.com/en/3.0.x/api/#flask.Flask.route
+owner check vor dem löschen             https://flask.palletsprojects.com/en/3.0.x/patterns/viewdecorators/
+objekt aus db löschen delete()          https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#insert-update-delete
+verknüpfte daten über relationship      https://docs.sqlalchemy.org/en/20/orm/relationship_api.html#sqlalchemy.orm.relationship
+for schleife über liste                 https://docs.python.org/3/tutorial/controlflow.html#for-statements
+commit endgültig speichern              https://docs.sqlalchemy.org/en/20/orm/session_basics.html#committing
+weiterleiten redirect                   https://flask.palletsprojects.com/en/3.0.x/api/#flask.redirect
+'''
+
+
+
 @trips_bp.route("/api/trips", methods=["GET"]) 
 def api_trips():      #api schnittstelle über die programme daten austauschen
    
@@ -216,3 +252,17 @@ def api_trips():      #api schnittstelle über die programme daten austauschen
             "description": trip.description,
         })
     return jsonify(result) # in json weil apps, webseiten javascript und anderee server es leicht lesen können
+
+
+''' quellen
+json mit flask für api zurückgeben	    https://www.youtube.com/watch?v=Up5Gm_Ls2oQ
+was ist eine REST api                   https://developer.mozilla.org/en-US/docs/Glossary/REST
+route mit GET methode                   https://flask.palletsprojects.com/en/3.0.x/api/#flask.Flask.route
+alle trips aus db holen query.all()     https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/#select
+liste erstellen und append()            https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+for schleife über objekte               https://docs.python.org/3/tutorial/controlflow.html#for-statements
+dictionary aufbau key value             https://docs.python.org/3/tutorial/datastructures.html#dictionaries
+datum in string isoformat()             https://docs.python.org/3/library/datetime.html#datetime.date.isoformat
+jsonify json-antwort zurückgeben        https://flask.palletsprojects.com/en/3.0.x/api/#flask.json.jsonify
+was ist json                            https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON
+'''
