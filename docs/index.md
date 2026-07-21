@@ -64,6 +64,7 @@ Die Plattform löst das häufige Problem, geeignete Mitreisende zu finden, indem
 + TemplateSyntaxError behoben (Jinja-Klammern aus HTML-Kommentaren)
 + Quellen im Code und in der Doku ergänzt
 + App Screenshots eingefügt
++ Neue Trips erstellt
 
 ---
 
