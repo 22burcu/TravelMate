@@ -9,11 +9,16 @@ TravelMate ist eine zweiseitige Reiseplattform, die Menschen miteinander verbind
 
 Die Plattform löst das häufige Problem, geeignete Mitreisende zu finden, indem sie einen strukturierten Matching-Prozess zwischen Reise-Hosts und Reisenden als Joiner ermöglicht. Hosts können Bewerbungen verwalten und Teilnehmer auswählen, während Reisende den Status ihrer Bewerbungen über ein persönliches Dashboard verfolgen können.
 
-[Below, include a representative, attractive screenshot of your final web app.]
-
 ## Sample App Screen
 
-![attractive app screenshot](assets/images/fswd-intro_00.png)
+![attractive app screenshot](assets/images/Startseite.png)
+
+![attractive app screenshot](assets/images/Trip_erstellen.png)
+
+![attractive app screenshot](assets/images/Host_Dashboard.png)
+
+![attractive app screenshot](assets/images/Joiner_Dashboard.png)
+
 
 ---
 

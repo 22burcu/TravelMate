@@ -76,8 +76,9 @@
                                   placeholder="Worum geht es bei der Reise? Was ist geplant?">{{ request.form.get('description', '') }}</textarea>
                     </div>
 
-                    <div class="d-grid">
+                    <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-dark">Reise veröffentlichen</button>
+                        <a href="{{ url_for('dashboard.host_dashboard') }}" class="btn btn-outline-secondary">Abbrechen</a>
                     </div>
                 </form>
             </div>
