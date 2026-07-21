@@ -78,3 +78,7 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 | 01  |         |                |                                 |                             |
 | 02  |         |                |                                 |                             |
 | ... |         |                |                                 |                             |
+
+############################################
+|ARIYAN WIRD DIE WIEDERHLUNGSPRÜFUNG MACHEN|
+############################################
