@@ -33,5 +33,5 @@ Aus der Design Challenge und den vier Kernproblemen haben wir die folgenden Lös
 
 ## [Raw Material]
 
-![Reise erstellen](material/01-dc/Reise_erstellen.png) 
+[Reise erstellen](material/01-dc/Reise_erstellen.png) 
 
