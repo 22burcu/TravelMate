@@ -64,9 +64,9 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 
 | Contribution | Proof, e.g., git commits | Sources used |
 | :-- | :-- | :-- |
-| Trips-Suche + Filter + Detailseite (trips.py, trips.html, trip_detail.html) | 11b826e, c0787ee, 99ba461, 167593e, e11d931, 9d946da, 5ce11c7, d5911ec, 0579579, 9e6024f | SQLAlchemy Docs (Queries, ilike, JOIN), Flask Docs (request.args, session), DigitalOcean Flask-SQLAlchemy Tutorial (vollständige Links als kommentierte Quellenblöcke direkt in den jeweiligen Dateien) |
+| Trips-Suche + Filter + Detailseite (trips.py, trips.html, trip_detail.html): Suche nach Reiseziel mit ilike, Filter nach Kontinent/Reisestil/Budget/Datum | 11b826e, c0787ee, 99ba461, 167593e, e11d931, 9d946da, 5ce11c7, d5911ec, 0579579, 9e6024f | SQLAlchemy Docs (Queries, ilike, JOIN), Flask Docs (request.args, session), DigitalOcean Flask-SQLAlchemy Tutorial (vollständige Links als kommentierte Quellenblöcke direkt in den jeweiligen Dateien) |
 | Bewerbungssystem (apply.html, __init__.py, application.py): Bewerbungsformular mit Nachricht + Budget erstellt, Blueprint applications_bp registriert, __name__-Bug gefixt | 658ccf5 (Apply-Seite), bc75fab (Blueprint registriert), 9ea951e (Bug-Fix) | Flask Docs (Blueprints, Blueprint-Registrierung), Flask-Login (login_required), Flask-SQLAlchemy (get_or_404, insert), Flask Flashing)(vollständige Links als kommentierte Quellenblöcke direkt in den jeweiligen Dateien) |
-| ContributionProof (git commits)Sources usedLanding Page Redesign (index.html, base.html): Fullscreen-Hero von Unsplash, zentrierte Suchleiste auf dem Bild | d78acc6, 3bdd5b1, e77ace5, 3ecb72b, 43e8506, f1c12c1, 6bfe55a | Bootstrap Docs (Grid, Utilities), MDN (Flexbox, background, positioning), W3Schools (padding), Unsplash (Bild) (vollständige Links als kommentierte Quellenblöcke direkt in den jeweiligen Dateien) |
+| ContributionProof (git commits)Sources usedLanding Page Redesign (index.html, base.html): Fullscreen-Bild von Unsplash, zentrierte Suchleiste auf dem Bild | d78acc6, 3bdd5b1, e77ace5, 3ecb72b, 43e8506, f1c12c1, 6bfe55a | Bootstrap Docs (Grid, Utilities), MDN (Flexbox, background, positioning), W3Schools (padding), Unsplash (Bild) (vollständige Links als kommentierte Quellenblöcke direkt in den jeweiligen Dateien) |
 |  |  |  |
 |  |  |  |
 
