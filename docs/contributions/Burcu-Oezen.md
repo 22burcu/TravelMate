@@ -86,3 +86,5 @@ Mir ist weiterhin bewusst, dass ich, sofern ich zur Erstellung dieser Arbeit KI-
 | 07  | Perplexity AI | Fehler finden im html Code | host_dashbord.html | [Fehler finden](../assets/pdf/Fehlermeldung_Dashboard.pdf)|
 | 08  | Perplexity AI | Nach Bewerbungen filtern, die der Host erhält| dashboard.py | [Bewerbungen filtern](../assets/pdf/Bewerbungen_filtern.pdf) |
 
+ 
+ 
