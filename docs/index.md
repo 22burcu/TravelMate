@@ -63,7 +63,8 @@ Die Plattform löst das häufige Problem, geeignete Mitreisende zu finden, indem
 + Falsch angezeigter Name in Bewerbungen korrigiert
 + TemplateSyntaxError behoben (Jinja-Klammern aus HTML-Kommentaren)
 + Quellen im Code und in der Doku ergänzt
-+ Sample App Screenshots eingefügt
++ App Screenshots eingefügt
+
 ---
 
 
